@@ -21,11 +21,17 @@ const About = () => {
       <div className="inner">
         <StyledText>
           <div>
-            <p>Hello! I&apos;m Junior, a Software Developer based in Buenos Aires, Argentina.</p>
+            <p>Hello! I&apos;m victor, a frontend developer based in Abeokuta,Nigeria.</p>
             <p>
-              I enjoy creating beautiful and reliable applications for internet and phones.
+              I'm in love building simple buy yet modern user interfaces without living out
+              accessibilty.
+            </p>
+            <p>
+              my interest for software development started a few months after graduating from high
+              school.My brother introduced me to programming in python ever since then I've being
+              sucked into the world of software development.
               <br />
-              My goal is to always build scalable products and performant experiences.
+              My goal is to create equitable and performant web experience that scales
             </p>
             <br />
             <p>Here are a few technologies I&apos;ve been working with recently:</p>
@@ -38,7 +44,7 @@ const About = () => {
 
         <StyledPic>
           <div className="wrapper">
-            <Image width={300} height={300} blu src="/avatar.jpeg" alt="Avatar" className="img" />
+            <Image width={300} height={300} blu src="/avatar.jpg" alt="Avatar" className="img" />
           </div>
         </StyledPic>
       </div>

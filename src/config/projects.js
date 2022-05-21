@@ -1,33 +1,35 @@
 /* eslint-disable max-len */
 module.exports = [
   {
-    title: 'Realtime TODO',
-    external: 'https://nextjs-todo-list.vercel.app/',
-    github: 'https://github.com/jrgarciadev/nextjs-todo-list',
+    title: 'Crowdfunding  Page',
+    external: 'https://code-victor.github.io/crowdfunding-product-page/',
+    github: 'https://github.com/Code-Victor/crowdfunding-product-page',
     descriptionHtml:
-      "Web application to add, edit, delete and assign to another person in <b>real-time</b>. My participation came out in one of his videos Minute: 29:35 -> <a target='_blank' href='https://www.youtube.com/watch?v=fyjNpvtzVhk'>Video</a>",
-    techs: ['Next.js', 'MaterialUI', 'Firebase'],
+      'a crowfunding application to allow donations and gives rewards based on various donations.it stores the state of donations until the total pull of money is reached',
+    techs: ['HTML', 'CSS', 'Javascript'],
   },
   {
-    title: 'GSAP Slider Component',
-    external: 'https://nextjs-gsap-slider.vercel.app/',
-    github: 'https://github.com/jrgarciadev/nextjs-strapi-slider',
+    title: 'Youtube download script',
+    external: 'https://github.com/Code-Victor/YoutubeDownloader',
+    github: 'https://github.com/Code-Victor/YoutubeDownloader',
     descriptionHtml:
-      'Web application to show modern slider, the slider images are managament from Strapi CMS Panel',
-    techs: ['Next.js', 'Typescript', 'Strapi', 'GraphQL'],
+      'a script that allows you to download youtube videos in various format. It also allows you to download multiple videos at once, save the transcript and the subtitles',
+    techs: ['Python'],
   },
   {
-    title: 'PWA Instagram for Pets',
-    external: 'https://petgram-chi-bice.now.sh/',
-    github: 'https://github.com/jrgarciadev/petgram',
-    descriptionHtml: 'Is a social Web & PWA application to upload, share and like pets photos',
-    techs: ['React.js', 'GraphQL', 'Apollo'],
+    title: 'Pluralsight clone',
+    external: 'https://code-victor.github.io/Pluralsight-Clone-v2/',
+    github: 'https://github.com/Code-Victor/Pluralsight-Clone-v2',
+    descriptionHtml:
+      "a pixel perfect replication of the outstanding landing page of <a target='_blank' href='https://pluralsight.com'>pluralsight</a> implemented with react and scss",
+    techs: ['React.js', 'SCSS', 'vite'],
   },
   {
-    title: 'Framework components for Vue.js',
-    external: 'https://vuesax.com',
-    github: 'https://github.com/jrgarciadev/vuesax',
-    descriptionHtml: 'I sometimes contributed to a Vue.js components framework, Vuesax.',
-    techs: ['Vue.js', 'Javascript', 'LESS'],
+    title: 'Social Media Dashboard',
+    external: 'https://code-victor.github.io/dashboard-frontend-mentor/',
+    github: 'https://github.com/Code-Victor/dashboard-frontend-mentor',
+    descriptionHtml:
+      'A static social Media Dashboard with light and dark Mode and nice user interface',
+    techs: ['React.js', 'tailwindCSS'],
   },
 ];

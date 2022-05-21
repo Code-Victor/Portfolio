@@ -3,26 +3,30 @@ import featuredProjects from './featured';
 import projects from './projects';
 
 module.exports = {
-  email: 'jrgarciadev@gmail.com',
+  email: 'oluwaborihamzat@gmail.com',
   featuredProjects,
   projects,
-  skills: ['JavaScript', 'TypeScript', 'React Native', 'React', 'Next.js', 'GraphQL'],
+  skills: ['JavaScript', 'TypeScript', 'React Native', 'React', 'Next.js', 'Python'],
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/jrgarciadev',
-    },
-    {
-      name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/jrgarciadev/',
+      url: 'https://github.com/Code-Victor',
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/jrgarciadev',
+      url: 'https://www.instagram.com/hamzatoluwabori',
     },
     {
       name: 'Twitter',
-      url: 'https://twitter.com/jrgarciadev',
+      url: 'https://twitter.com/VictorFiery',
+    },
+    {
+      name: 'Linkedin',
+      url: 'https://www.linkedin.com/in/code-victor/',
+    },
+    {
+      name: 'Codepen',
+      url: 'https://codepen.io/code-victor-the-typescripter',
     },
   ],
 
@@ -30,10 +34,6 @@ module.exports = {
     {
       name: 'About',
       url: '/#about',
-    },
-    {
-      name: 'Blog',
-      url: 'https://blog.jrgarciadev.com',
     },
     {
       name: 'Work',

@@ -1,30 +1,30 @@
 /* eslint-disable max-len */
 module.exports = [
   {
-    title: 'NextUI',
-    cover: '/nextui.png',
-    github: 'https://github.com/nextui-org/nextui',
-    external: 'https://nextui.org',
+    title: 'Github Repo Details',
+    cover: '/GRC.png',
+    github: 'https://github.com/Code-Victor/github-repodetails',
+    external: 'https://github-repodetails.vercel.app/',
     descriptionHtml:
-      'React UI library with SSR support, fully customizable, responsive adaptative components, dark mode support, beautiful, modern and fast. <a target="_blank" rel="noreferrer" href="https://nextui.org">Go there</a> ',
-    techs: ['React', 'Typescript', 'Styled JSX'],
+      'A simple app with excellent ui that allows you to log into your github account and get your repository details at a glance. It also supports complex search and theming ',
+    techs: ['React', 'Redux', 'Firebase', 'Tailwind'],
   },
   {
-    title: 'Devcover',
-    cover: '/devcover.jpg',
-    github: 'https://github.com/jrgarciadev/dev-cover',
-    external: 'https://devcover.me',
+    title: 'Keyboadr',
+    cover: '/keyboadr.png',
+    github: 'https://github.com/Code-Victor/keyboarder',
+    external: 'https://code-victor.github.io/keyboarder/',
     descriptionHtml:
-      'I won the <a target="_blank" rel="noreferrer" href="https://vercel.com">Vercel</a> & <a target="_blank" rel="noreferrer" href="https://hashnode.com">Hashnode</a> <a target="_blank" rel="noreferrer" href="https://townhall.hashnode.com/vercelhashnode-hackathon-winners">Hackaton</a> with this project which is the easiest way to generate a developer portfolio. Devcover collects the developer data from Github, Hashnode and Dev.to sites to build a great porfolio just with their Github username <a target="_blank" rel="noreferrer" href="https://blog.jrgarciadev.com/devcover-easiest-way-to-generate-a-developer-portfolio">Read blog</a> ',
-    techs: ['React', 'Javascript', 'Vercel'],
+      'I built a app that allows anyone to learn touch typing easily. It is built in a custom dark theme. With an onscreen keyboard, user`s can type in the text area and see the result in real time and also make improvements.',
+    techs: ['React', 'Javascript', 'github'],
   },
   {
-    title: 'React Iconly',
-    cover: '/react-iconly.png',
-    github: 'https://github.com/jrgarciadev/react-iconly',
-    external: 'https://react-iconly.jrgarciadev.com',
+    title: 'Jadoo Landing Page',
+    cover: '/jadoo.png',
+    github: 'https://github.com/Code-Victor/Jadoo-landing-page',
+    external: 'https://jadoo-landing-page.vercel.app/',
     descriptionHtml:
-      'Beautiful and pixel perfect React Icon Library, <a target="_blank" rel="noreferrer" href="https://piqodesign.gumroad.com/l/iconly">Iconly</a> is one of the options that is being used by designers and developers today, so I decided to create a library for React / Next.js / Gatsby that facilitates its use and that also allows us to customize any icon according to our needs.  <a target="_blank" rel="noreferrer" href="https://dev.to/jrgarciadev/beautiful-and-pixel-perfect-react-icon-library-2fnd">Blog Post</a>',
-    techs: ['React', 'Library', 'Icons'],
+      'A Beautiful and pixel perfect implementation of a design for Jadoo, a travel agency.This was done with accessibility in mind and gentle animations to make the site more user friendly and lively.',
+    techs: ['React', 'Next.js', 'framer-motion', 'tailwind'],
   },
 ];

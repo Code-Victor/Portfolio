@@ -14,12 +14,12 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Welcome, I&apos;m</h1>;
-  const two = <StyledBigTitle>Junior García.</StyledBigTitle>;
-  const three = <StyledBigTitle slate>I build web and mobile apps.</StyledBigTitle>;
+  const two = <StyledBigTitle>Hamzat Victor.</StyledBigTitle>;
+  const three = <StyledBigTitle slate>I build modern web apps.</StyledBigTitle>;
   const four = (
     <p>
-      I&apos;m a software developer based in Buenos Aires AR, specializing in building exceptional
-      websites and mobile applications, and everything in between.
+      I&apos;m a software developer specialized in building awesome user interfaces and experiences
+      with one of the best tech stacks in the world--React.
     </p>
   );
   const five = (

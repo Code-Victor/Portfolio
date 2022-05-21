@@ -1,10 +1,13 @@
 {
+  "homepage": "https://code-victor.github.io",
   "name": "portfoliov2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d .next",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
@@ -46,6 +49,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.3",
     "eslint-plugin-react-hooks": "^4.1.2",
+    "gh-pages": "^4.0.0",
     "husky": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.4.2",
