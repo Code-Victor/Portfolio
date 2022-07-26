@@ -1,18 +1,22 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@stitches/react': ^1.2.8
   '@types/node': 18.6.1
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
   eslint: 8.20.0
   eslint-config-next: 12.2.3
   next: 12.2.3
+  next-themes: ^0.2.0
   react: 18.2.0
   react-dom: 18.2.0
   typescript: 4.7.4
 
 dependencies:
+  '@stitches/react': 1.2.8_react@18.2.0
   next: 12.2.3_biqbaboplfbrettd7655fr4n2y
+  next-themes: 0.2.0_53oqlnqnxhbetdy4ljlkkvmoby
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -224,6 +228,14 @@ packages:
   /@rushstack/eslint-patch/1.1.4:
     resolution: {integrity: sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==}
     dev: true
+
+  /@stitches/react/1.2.8_react@18.2.0:
+    resolution: {integrity: sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==}
+    peerDependencies:
+      react: '>= 16.3.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@swc/helpers/0.4.3:
     resolution: {integrity: sha512-6JrF+fdUK2zbGpJIlN7G3v966PQjyx/dPt1T9km2wj+EUBqgrxCk3uX4Kct16MIm9gGxfKRcfax2hVf5jvlTzA==}
@@ -1337,6 +1349,18 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /next-themes/0.2.0_53oqlnqnxhbetdy4ljlkkvmoby:
+    resolution: {integrity: sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 12.2.3_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /next/12.2.3_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-TA0tmSA6Dk6S6kfvCNbF7CWYW8468gZUxr/3/30z4KvAQbXnl2ASYZElVe7q/hBW/1F1ee0tSBlHa4/sn+ZIBw==}
