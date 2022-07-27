@@ -22,7 +22,7 @@ const Container=styled('div',{
         padding:{
             none:{},
             '1':{
-                px:'0.5rem'
+                px:'0.8rem'
             },
             '2':{
                 px:'1rem'
@@ -31,6 +31,10 @@ const Container=styled('div',{
                 px:'1.5rem'
             },
         }
+    },
+    defaultVariants:{
+        padding:'1'
     }
+    
 })
 export default Container
