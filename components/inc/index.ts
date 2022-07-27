@@ -1,2 +1,8 @@
 export {default as Navbar} from './Navbar'
 export {default as Hero} from './Hero'
+export {default as Experience} from './Experience'
+export {default as Section} from './Section'
+export {default as Featured} from './Featured'
+export {default as Projects} from './Projects'
+export {default as Tools} from './Tools'
+export {default as NewsLetter} from './NewsLetter'
