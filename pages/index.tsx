@@ -2,14 +2,17 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { Container } from "../components/base";
-import { Hero, Navbar } from "../components/inc";
-import styles from "../styles/Home.module.css";
+import { Experience, Featured, Hero, Navbar, NewsLetter, Tools } from "../components/inc";
 
 const Home: NextPage = () => {
   return (
     <>
-      <Navbar />
       <Hero/>
+      <Experience/>
+      <Tools/>
+      <Featured/>
+      {/* TODO: Add Featured articles */}
+      <NewsLetter/>
     </>
   );
 };
