@@ -15,10 +15,13 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      textPrimary: "#F0F0F0",
-      textSecondary: "#C4C4C4",
-      backgroundPrimary: "#111111",
-      backgroundSecondary: "#000000",
+      textPrimary: "#1A1A1A",
+      textSecondary: "#1A1A1A",
+      backgroundPrimary: "#ffffff",
+      backgroundSecondary: "#fbfbfb",
+      link:'#6CACE4',
+      tab: "rgba(31,30,30,0.1)",
+
       // Semantic colors
       hiContrast: "$slate12",
       // loContrast: '$slate1',
@@ -152,9 +155,9 @@ export const {
       marginTop: value,
       marginBottom: value,
     }),
-
+    
     ta: (value: Stitches.PropertyValue<"textAlign">) => ({ textAlign: value }),
-
+    
     fd: (value: Stitches.PropertyValue<"flexDirection">) => ({
       flexDirection: value,
     }),
@@ -218,7 +221,7 @@ export const {
       WebkitUserSelect: value,
       userSelect: value,
     }),
-    mw:(value:Stitches.PropertyValue<"maxWidth">)=>({maxWidth:value}),
+    mw: (value: Stitches.PropertyValue<"maxWidth">) => ({ maxWidth: value }),
     userSelect: (value: Stitches.PropertyValue<"userSelect">) => ({
       WebkitUserSelect: value,
       userSelect: value,
@@ -228,7 +231,6 @@ export const {
       width: value,
       height: value,
     }),
-    
 
     appearance: (value: Stitches.PropertyValue<"appearance">) => ({
       WebkitAppearance: value,
@@ -243,8 +245,11 @@ export const {
 
 export const darkTheme = createTheme({
   colors: {
-    text: "white",
-    background: "black",
+    textPrimary: "#F0F0F0",
+    textSecondary: "#C4C4C4",
+    backgroundPrimary: "#111111",
+    backgroundSecondary: "#000000",
+    tab: "#1F1E1E",
   },
 });
 export type CSS = Stitches.CSS<typeof config>;
@@ -265,6 +270,10 @@ export const GlobalStyles = globalCss({
     padding: 0,
     fontFamily: "$inter",
   },
+  'a': {
+  color: 'inherit',
+  textDecoration:' none',
+}
 });
 
 GlobalStyles();
