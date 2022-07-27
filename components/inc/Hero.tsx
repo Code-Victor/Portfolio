@@ -39,7 +39,14 @@ const Links = [
 
 const Hero = () => {
   return (
-    <Box css={{ bg: "$backgroundPrimary", pb: "$8", position: "relative" }}>
+    <Box
+      css={{
+        bg: "$backgroundPrimary",
+        color: "$textPrimary",
+        pb: "$8",
+        position: "relative",
+      }}
+    >
       <Container>
         <Grid columns={{ "@initial": 1, "@md": 5 }}>
           <Box
@@ -50,10 +57,8 @@ const Hero = () => {
               fd: "column",
               gap: "$1",
               order: 2,
-              px: "$2",
               "@md": {
                 gcs: "span 3",
-                px: "0",
                 order: 1,
                 mt: "$9",
                 gap: "$3",
