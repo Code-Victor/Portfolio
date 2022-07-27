@@ -54,6 +54,7 @@ const Grid = styled('div', {
       },
     },
     columns: {
+      none:{},
       1: {
         gridTemplateColumns: 'repeat(1, 1fr)',
       },
