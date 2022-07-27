@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
-import { styled } from "../../stitches.config";
-import type * as Stitches from "@stitches/react";
+import { CSS, styled } from "../../stitches.config";
 
 const Btn = styled("div", {
   bg: "transparent",
@@ -10,7 +9,7 @@ const Btn = styled("div", {
   display: "flex",
   gap: "$2",
   ai: "center",
-  color: "White",
+  color: "$textPrimary",
   fontWeight: "light",
   br: 4,
   bc: "$backgroundPrimary",
@@ -69,7 +68,7 @@ const GradientWrapper = styled("button", {
   },
 });
 
-type GradientWrapperProps = Stitches.VariantProps<typeof GradientWrapper>;
+type GradientWrapperProps = React.ComponentProps<typeof GradientWrapper>;
 const GradientBtn = ({
   children,
   ...props
