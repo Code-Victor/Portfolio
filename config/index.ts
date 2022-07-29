@@ -40,37 +40,39 @@ const config = {
   ],
   experience: [
     {
-      position: "Frontend Developer (In Office)",
-      company: "FreeBeings",
+      position: "Frontend Developer ",
+      company: "Halphatek",
       role: [
-        "Working on web applications and occasionally leading the development team.",
-        "Using React and integrating external APIs with the HIVE blockchain.",
+        "I helped clients to build and deploy User Interfaces for MVP(Minimum Viable Product) for startups and business.",
+        "I helped to maintain codebases of already started projects.",
+        "Increase sites SEO(Search Engine Optimization), which in turn increased sales in multiple.",
       ],
-      duration: "Mar 2021 - Aug 2021",
+      duration: "Mar 2021 - Aug 2022",
     },
     {
-      position: "Frontend Developer (Contractor)",
-      company: "TDF",
+      position: "Web Developer",
+      company: "Personal",
       role: [
-        "Made landing pages and web applications collaborating with the back-end engineers of the team.",
-        "Convert designs into real world applications and pages using multiple front-end technologies.",
-        "Frequently working on e-commerce projects.",
+        "A mix of solo and group projects to build technical and soft skills needed for real life projects.",
+        "Focused on writing clean, maintainable and testable code.",
+        "Developing semantically-correct, accessible and responsive web applications, as well as local software communities contributions.",
+        "Building familiarity with Git workflow, Testing/TDD, Performance Optimization and CI/CD.",
       ],
-      duration: "Feb 2021 - Mar 2021",
+      duration: "Dec 2019 - Present",
     },
   ],
   navLinks: [
     {
-      name: "About",
-      url: "/#about",
+      name: "Home",
+      url: "/",
     },
     {
-      name: "Work",
-      url: "/#projects",
+      name: "Experience",
+      url: "/#experience",
     },
     {
-      name: "Contact",
-      url: "/#contact",
+      name: "Projects",
+      url: "/projects",
     },
   ],
   colors: {
