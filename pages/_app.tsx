@@ -1,12 +1,12 @@
 import type { AppProps } from 'next/app'
 import { darkTheme } from "../stitches.config";
 import { ThemeProvider } from "next-themes";
-import { Navbar } from '../components/inc';
+import { Navbar,Footer } from '../components/inc';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return(
-        <ThemeProvider
+  return (
+    <ThemeProvider
       attribute="class"
       defaultTheme="light"
       enableSystem={false}
@@ -15,9 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         dark: darkTheme.className,
       }}
     >
-      <Navbar/>
-    <Component {...pageProps} />
-    </ThemeProvider>)
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </ThemeProvider>
+  );
 }
 
 export default MyApp
