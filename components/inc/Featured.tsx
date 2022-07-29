@@ -25,6 +25,7 @@ const Featured = ({ main = false }: { main?: boolean }) => {
     <Section
       title={main ? "" : "FEATURED PROJECTS"}
       css={{ bg: "$backgroundSecondary" }}
+      id="projects"
     >
       <Grid
         gapY={4}
@@ -35,11 +36,7 @@ const Featured = ({ main = false }: { main?: boolean }) => {
             display: "none",
             bg: "white",
           },
-          "@md": {
-            "&:nth-child(4n)": {
-              display: "none",
-            },
-          },
+
         }}
       >
         {Array.from({ length: cardNo }).map((_, i) => {
@@ -62,7 +59,7 @@ const Featured = ({ main = false }: { main?: boolean }) => {
           </GradientBtn>
         </Link>
       )}
-      {/* <Divider css={{ mt: "$7", "@md": { gridColumn: "span 2", mt: "$9" } }} /> */}
+      <Divider css={{ mt: "$7", "@md": { mt: "$9" } }} />
     </Section>
   );
 };
