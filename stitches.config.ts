@@ -19,7 +19,12 @@ export const {
       textSecondary: "#1A1A1A",
       backgroundPrimary: "#ffffff",
       backgroundSecondary: "#fbfbfb",
-      link:'#6CACE4',
+      gradient1:
+        "linear-gradient(51.06deg, #9358F7 0.87%, #9259F7 7.31%, #8E5DF6 13.75%, #8862F5 20.19%, #806BF4 26.63%, #7575F2 33.07%, #6882F0 39.51%, #5990EE 45.95%, #4A9FEB 52.39%, #3BADE9 58.84%, #2EBAE7 65.28%, #23C4E5 71.72%, #1BCDE4 78.16%, #15D2E3 84.6%, #11D6E2 91.04%, #10D7E2 97.48%)",
+      gradient2: "linear-gradient(135deg, #6964DE 2.88%, #FCA6E9 100%)",
+      gradient3: "linear-gradient(45.4deg, #F4426C 6.41%, #FBF2B1 98.99%)",
+      gradient4: "linear-gradient(132.33deg, #D24074 -0.67%, #6518B4 102.54%)",
+      link: "#6CACE4",
       tab: "rgba(31,30,30,0.1)",
 
       // Semantic colors
@@ -155,9 +160,13 @@ export const {
       marginTop: value,
       marginBottom: value,
     }),
-    
+    spacey:(value:Stitches.PropertyValue<"marginTop">)=>({
+      '&>*+*':{
+        marginTop:value
+      }
+    }),
     ta: (value: Stitches.PropertyValue<"textAlign">) => ({ textAlign: value }),
-    
+
     fd: (value: Stitches.PropertyValue<"flexDirection">) => ({
       flexDirection: value,
     }),
@@ -269,6 +278,9 @@ export const GlobalStyles = globalCss({
     margin: 0,
     padding: 0,
     fontFamily: "$inter",
+  },
+  'html':{
+    scrollBehavior:'smooth!important'
   },
   'a': {
   color: 'inherit',
