@@ -50,16 +50,16 @@ const GradientWrapper = styled("button", {
   variants: {
     gradient: {
       1: {
-        bg: "linear-gradient(51.06deg, #9358F7 0.87%, #9259F7 7.31%, #8E5DF6 13.75%, #8862F5 20.19%, #806BF4 26.63%, #7575F2 33.07%, #6882F0 39.51%, #5990EE 45.95%, #4A9FEB 52.39%, #3BADE9 58.84%, #2EBAE7 65.28%, #23C4E5 71.72%, #1BCDE4 78.16%, #15D2E3 84.6%, #11D6E2 91.04%, #10D7E2 97.48%)",
+        bg:'$gradient1'
       },
       2: {
-        bg: "linear-gradient(135deg, #6964DE 2.88%, #FCA6E9 100%)",
+        bg: "$gradient2",
       },
       3: {
-        bg: "linear-gradient(45.4deg, #F4426C 6.41%, #FBF2B1 98.99%)",
+        bg: "$gradient3",
       },
       4: {
-        bg: "linear-gradient(132.33deg, #D24074 -0.67%, #6518B4 102.54%)",
+        bg: "$gradient4",
       },
     },
   },
