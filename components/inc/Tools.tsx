@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { IconType } from "react-icons";
 import { Section } from ".";
 import { styled } from "../../stitches.config";
 import useToggle from "../hooks/useToogle";
-import { Text, Grid, Flex,Divider } from "../base";
+import { Text, Grid, Flex, Divider } from "../base";
 import config from "../../config";
 
 const { tools } = config;
@@ -13,10 +13,15 @@ const Tools = () => {
     <Section
       title="Tools & Technologies"
       css={{
+
         bg: "$backgroundSecondary",
+        pb:'$7',
         "& h3:first-of-type": {
           ta: "center",
         },
+        '@md':{
+      pb:'$9',
+        }
       }}
     >
       <Text
@@ -52,7 +57,7 @@ const Tools = () => {
           );
         })}
       </Grid>
-      <Divider css={{ mt: "$7", "@md": { gridColumn: "span 2", mt: "$9" } }} />
+
     </Section>
   );
 };
@@ -66,11 +71,11 @@ const Skill = ({
   icon: IconType;
   color: string;
 }) => {
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useToggle(false);
   return (
     <Flex
       align={"center"}
-      gap='2'
+      gap="2"
       css={{
         ta: "center",
         listStyle: "none",
@@ -85,12 +90,8 @@ const Skill = ({
       }}
       as="li"
       direction="column"
-      onMouseEnter={() => {
-        setHover(true);
-      }}
-      onMouseLeave={() => {
-        setHover(false);
-      }}
+      onMouseEnter={setHover}
+      onMouseLeave={setHover}
     >
       <Icon color={hover ? color : "currentColor"} />
       <Text>{name}</Text>
