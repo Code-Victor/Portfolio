@@ -1,5 +1,5 @@
 import React from "react";
-import { Box,Flex, Text,Container } from "../base";
+import { Box,Flex, Text,Container, NiceLink } from "../base";
 import { Sun,Moon } from "../icons";
 import { useTheme } from "next-themes";
 
@@ -7,31 +7,39 @@ import { useTheme } from "next-themes";
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   return (
-    <Box css={{ bg: "$backgroundPrimary", color: "$textPrimary" }}>
+    <Box
+      css={{
+        bg: "transparent",
+        color: "$textPrimary",
+        backdropFilter: "blur(10px)",
+        position: "sticky",
+        inset: 0,
+        top: 0,
+        zIndex: 20,
+      }}
+    >
       <Container>
         <Flex
           justify={"between"}
           align={"center"}
-          css={{ height: "70px", bg: "$backgroundPrimary" }}
+          css={{ height: "70px", }}
         >
           <Text
             as="h1"
-            css={{ color: "$textPrimary" }}
+            css={{ color: "$textPrimary" ,cursor:'pointer'}}
             fontFamily={"inter"}
             fontSize={6}
           >
             HV.
           </Text>
           <Flex gap={5} align="center">
-            <Text as="a" href="#">
-              Projects
-            </Text>
-            <Text as="a" href="#">
+            <NiceLink href="/#projects">Projects</NiceLink>
+            <NiceLink href="#" css={{ "&::after": { bg: "$gradient3" } }}>
               Resume
-            </Text>
-            <Text as="a" href="#">
-              Contact
-            </Text>
+            </NiceLink>
+            <NiceLink href="/#articles"
+            css={{ "&::after": { bg: "$gradient1" } }}
+            >Articles</NiceLink>
             <button
               style={{
                 border: "none",
@@ -40,7 +48,7 @@ const Navbar = () => {
               }}
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
-              {theme === "dark" ? <Sun /> : <Moon/>}
+              {theme === "dark" ? <Sun /> : <Moon />}
             </button>
           </Flex>
         </Flex>
