@@ -7,7 +7,7 @@ const Projects = () => {
     <Section title="Other Noteworthy Projects" css={{bg:"$backgroundSecondary",'& h3:first-of-type':{ta:'center'}}}>
       <Grid
         columns={{ "@initial": 1, "@md": 2 }}
-        css={{ maxWidth: 960 ,mx:'auto',mt:'$5'}}
+        css={{ mx:'auto',mt:'$5'}}
         justify="center"
       >
         <Card
