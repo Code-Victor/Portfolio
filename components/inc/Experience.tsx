@@ -2,20 +2,12 @@ import * as React from "react";
 import { Box, Text, Flex, Grid,Divider } from "../base";
 import { Section } from ".";
 import config from "../../config";
-import { motion } from "framer-motion";
+import { motion,AnimatePresence } from "framer-motion";
 import { styled } from "../../stitches.config";
 import { useMd } from "../hooks/useMediaQuery";
 
 const { experience } = config;
 const companies = experience.map((exp) => exp.company);
-
-const Experience = () => {
-  return (
-    <Section title="EXPERIENCE" css={{ bg: "$backgroundSecondary" }}>
-      <Tabs />
-    </Section>
-  );
-};
 const TabHeader = styled("div", {
   minWidth: "$9",
   ta: "center",
@@ -31,6 +23,14 @@ const TabHeader = styled("div", {
     ta: "left",
   }
 });
+
+const Experience = () => {
+  return (
+    <Section id="experience" title="Experience" css={{ bg: "$backgroundSecondary" }}>
+      <Tabs />
+    </Section>
+  );
+};
 const Underline = styled(motion.div, {
   position: "absolute",
   bottom: 0,
@@ -100,34 +100,35 @@ const Tabs = () => {
         </Flex>
         <Rule />
       </Flex>
-      <Box>
-        <Flex justify="between" align="center">
-          <Text as="h2" fontWeight="medium">
-            {tabInfo.position}
+      <AnimatePresence exitBeforeEnter>
+        <Box as={motion.div} initial={{x:100,opacity:0}} exit={{x:100,opacity:0}}  animate={{x:0,opacity:1}} key={tabInfo.company}>
+          <Flex justify="between" align="center">
+            <Text as="h2" fontWeight="medium">
+              {tabInfo.position}
+            </Text>
+            <Text as="p" fontSize={"1"} css={{color:'$textSecondary'}}>
+              {tabInfo.duration}
+            </Text>
+          </Flex>
+          <Text as="p" css={{ color: "$link", my: "$2" }} fontSize={2}>
+            {tabInfo.company}
           </Text>
-          <Text as="p" fontSize={"1"} css={{color:'$textSecondary'}}>
-            {tabInfo.duration}
-          </Text>
-        </Flex>
-        <Text as="p" css={{ color: "$link", my: "$2" }} fontSize={2}>
-          {tabInfo.company}
-        </Text>
-        <Flex direction="column" gap={{ "@initial": "2" }} as="ul">
-          {tabInfo.role.map((detail, index) => {
-            return (
-              <Text
-                key={index}
-                as="li"
-                fontSize={{ "@initial": 3, "@md": 4 }}
-                css={{ listStyle: "none", color: "$textSecondary" }}
-              >
-                - {detail}
-              </Text>
-            );
-          })}
-        </Flex>
-      </Box>
-      <Divider css={{ mt: "$7", "@md": { gridColumn: "span 2",mt:'$9' } }} />
+          <Flex direction="column" gap={{ "@initial": "2" }} as="ul">
+            {tabInfo.role.map((detail, index) => {
+              return (
+                <Text
+                  key={index}
+                  as="li"
+                  fontSize={{ "@initial": 3, "@md": 4 }}
+                  css={{ listStyle: "none", color: "$textSecondary" }}
+                >
+                  - {detail}
+                </Text>
+              );
+            })}
+          </Flex>
+        </Box>
+      </AnimatePresence>
     </Grid>
   );
 };
