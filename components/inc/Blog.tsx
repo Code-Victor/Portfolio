@@ -1,36 +1,15 @@
 import React from "react";
 import useSWR from "swr";
+import Image from "next/image";
+import Link from "next/link";
+import { fetcher, url,returns } from "../utils/";
 import { Section } from ".";
 import { styled } from "../../stitches.config";
-import Image from "next/image";
-import { Box, Container, Flex, Text } from "../base";
+import { Box, Container, Flex, GradientBtn, Text } from "../base";
 
-interface item {
-  author: string;
-  categories: string[];
-  content: string;
-  pubDate: string;
-  description: string;
-  thumbnail: string;
-  title: string;
-  guid: string;
-}
-interface returns {
-  status: string;
-  feed: object;
-  items: item[];
-}
-const url =
-  "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@oluwaborihamzat";
-async function fetcher<JSON = any>(
-  input: RequestInfo,
-  init?: RequestInit
-): Promise<returns> {
-  const res = await fetch(input, init);
-  return res.json();
-}
 const Blog = () => {
-  const { data, error } = useSWR(url, fetcher);
+  const { data, error } = useSWR(url, fetcher<returns>);
+  const loading = !data && !error;
   const items = data?.items;
 
   const getDescription = (text: string) => {
@@ -38,22 +17,18 @@ const Blog = () => {
       .match(/<p>(.*?)<\/p>/g)
       ?.map((a) => a.replace(/<p>|<\/p>/g, ""))[0];
   };
-  console.log(data, "data");
-  if (error) return <div>failed to load</div>;
-  if (!data && !error) return <div>loading...</div>;
   return (
     <Section
       title="Featured Articles"
       css={{
         bg: "$backgroundSecondary",
-        "& h3:first-of-type": {
-          ta: "center",
-        },
+        pb: "$8",
       }}
       id="articles"
     >
       {items?.map((item, id) => {
-        const {guid, title, description, categories, thumbnail, pubDate } = item;
+        const { guid, title, description, categories, thumbnail, pubDate } =
+          item;
         let time = new Date(pubDate).toLocaleDateString("en-US", {
           month: "long",
           day: "numeric",
@@ -72,7 +47,7 @@ const Blog = () => {
                   target="_blank"
                   fontWeight={{ "@initial": "semibold" }}
                   fontSize={{ "@initial": "5", "@lg": "6" }}
-                  css={{display:'block'}}
+                  css={{ display: "block" }}
                 >
                   {title}
                 </Text>
@@ -112,6 +87,11 @@ const Blog = () => {
           </Box>
         );
       })}
+      <Flex justify={"center"} css={{ mt: "$6" }}>
+        <Link href={"https://medium.com/@oluwaborihamzat"} target="_blank">
+          <GradientBtn>Follow Me</GradientBtn>
+        </Link>
+      </Flex>
     </Section>
   );
 };
