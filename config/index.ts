@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import featuredProjects from './featured';
 import projects from './projects';
+import journey from './journey';
 import * as tools from './tools'
 
 const config = {
@@ -8,6 +9,7 @@ const config = {
   featuredProjects,
   projects,
   tools,
+  journey,
   skills: [
     "JavaScript",
     "TypeScript",
@@ -16,6 +18,11 @@ const config = {
     "Next.js",
     "Python",
   ],
+  coreValues:[
+  { name: "Impact", color: "$gradient2" },
+  { name: "Competence", color: "$gradient3" },
+  { name: "Relationships", color: "$gradient1" },
+],
   socialMedia: [
     {
       name: "GitHub",
@@ -67,13 +74,20 @@ const config = {
       url: "/",
     },
     {
-      name: "Experience",
-      url: "/#experience",
+      name: "About",
+      url: "/about",
+      color:"$gradient3"
     },
     {
       name: "Projects",
       url: "/projects",
+      color:"$gradient1"
     },
+    {
+      name: "Resume",
+      url: "/#",
+      color:"$gradient2"
+      },
   ],
   colors: {
     green: "#64ffda",
