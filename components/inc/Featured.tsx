@@ -1,11 +1,13 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Section } from ".";
+import config from "../../config";
 import { Flex, Grid, Box, Text, GradientBtn, Divider } from "../base";
 import { useLg, useMd } from "../hooks/useMediaQuery";
 import { Github, LinkIcon } from "../icons";
 import Link from "next/link";
 
+const { featuredProjects } = config;
 const Featured = ({ main = false }: { main?: boolean }) => {
   const [cardNo, setCardNo] = useState(main ? 6 : 3);
   const isMd = useMd();
@@ -23,30 +25,32 @@ const Featured = ({ main = false }: { main?: boolean }) => {
   }, [cardNo, isMd, isLg, main]);
   return (
     <Section
-      title={main ? "" : "FEATURED PROJECTS"}
-      css={{ bg: "$backgroundSecondary" }}
+      title={main ? "" : "Featured Projects"}
+      css={{
+        bg: "$backgroundSecondary",
+        pb: "$7",
+        "@md": {
+         pb: "$9",
+        },
+        [`& .liner`]: {
+          display: main ? "none" : "flex",
+        },
+      }}
       id="projects"
     >
       <Grid
-        gapY={4}
-        gapX={2}
+        gapY={8}
+        gapX={4}
         columns={{ "@initial": "1", "@md": "2", "@lg": "3" }}
         css={{
           "&:": {
             display: "none",
             bg: "white",
           },
-
         }}
       >
-        {Array.from({ length: cardNo }).map((_, i) => {
-          return (
-            <Card
-              key={i}
-              title="IntenseProxy"
-              description="Proxy provider website including authentication, dashboard and dynamic features"
-            />
-          );
+        {featuredProjects.slice(0, cardNo).map((project, i) => {
+          return <Card key={i} {...project} />;
         })}
       </Grid>
       {!main && (
@@ -59,55 +63,60 @@ const Featured = ({ main = false }: { main?: boolean }) => {
           </GradientBtn>
         </Link>
       )}
-      <Divider css={{ mt: "$7", "@md": { mt: "$9" } }} />
     </Section>
   );
 };
 
 interface CardProps {
   title: string;
-  description: string;
-  image: string;
-  link: string;
+  cover: string;
+  github: string;
+  external: string;
+  descriptionHtml: string;
+  techs: string[];
 }
-const Card = ({ title, description }: Partial<CardProps>) => {
-  const links = ["React", "Bootstrap", "Styled Components"];
+const Card = ({
+  title,
+  descriptionHtml,
+  cover,
+  techs,
+  github,
+  external,
+}: CardProps) => {
   return (
     <Flex direction="column" gap="2">
-      <Box
-        css={{
-          position: "relative",
-          minHeight: 180,
-          "@md": {
-            minHeight: 200,
-          },
-          "@lg": {
-            minHeight: 240,
-          },
-        }}
-      >
-        <Image src="/images/project.png" layout="fill" alt="project image" />
-      </Box>
+      <Image
+        src={cover || "/images/project.png"}
+        width={1900}
+        height={1000}
+        alt={title}
+        objectPosition={"center"}
+        objectFit="cover"
+      />
       <Flex direction={"column"} gap={{ "@initial": 3 }}>
         <Text as="h1" fontSize="5">
           {title}
         </Text>
         <Text as="p" fontSize="3">
-          {description}
+          {descriptionHtml}
         </Text>
         <Flex gap="2">
-          {links.map((link) => (
-            <Text key={link} css={{ color: "$link" }}>
-              {link}
+          {techs.map((tech) => (
+            <Text key={tech} css={{ color: "$link" }}>
+              {tech}
             </Text>
           ))}
         </Flex>
         <Flex align={"center"} gap={{ "@initial": 2 }} css={{ mt: "$5" }}>
-          <GradientBtn>
-            <LinkIcon />
-            Live demo
-          </GradientBtn>
-          <Github />
+          <Text as="a" target="_blank" href={external}>
+            <GradientBtn>
+              <LinkIcon />
+              Live demo
+            </GradientBtn>
+          </Text>
+          <Text as="a" target="_blank" href={github}>
+            <Github />
+          </Text>
         </Flex>
       </Flex>
     </Flex>
