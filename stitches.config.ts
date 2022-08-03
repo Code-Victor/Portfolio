@@ -17,6 +17,7 @@ export const {
     colors: {
       textPrimary: "#1A1A1A",
       textSecondary: "#1A1A1A",
+      textLighter: "#606060",
       backgroundPrimary: "#ffffff",
       backgroundSecondary: "#fbfbfb",
       gradient1:
@@ -42,6 +43,7 @@ export const {
       mono: "Söhne Mono, menlo, monospace",
       inter: "Inter, sans-serif",
       poppins: "Poppins, sans-serif",
+      greatVibes:"Great Vibes,cursive",
       ogg: "Ogg, sans-serif",
     },
     space: {
@@ -78,6 +80,7 @@ export const {
       2: "13px",
       3: "15px",
       4: "16px",
+      "mid": "18px",
       5: "20px",
       6: "24px",
       7: "28px",
@@ -160,10 +163,10 @@ export const {
       marginTop: value,
       marginBottom: value,
     }),
-    spacey:(value:Stitches.PropertyValue<"marginTop">)=>({
-      '&>*+*':{
-        marginTop:value
-      }
+    spacey: (value: Stitches.PropertyValue<"marginTop">) => ({
+      "&>*+*": {
+        marginTop: value,
+      },
     }),
     ta: (value: Stitches.PropertyValue<"textAlign">) => ({ textAlign: value }),
 
@@ -266,6 +269,7 @@ export type CSS = Stitches.CSS<typeof config>;
 export const GlobalStyles = globalCss({
   "@import": [
     "url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@400;500&display=swap')",
+    "url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap')",
   ],
   "@font-face": [
     {
@@ -278,14 +282,16 @@ export const GlobalStyles = globalCss({
     margin: 0,
     padding: 0,
     fontFamily: "$inter",
+    transition: "background 500ms ease-in-out",
   },
-  'html':{
-    scrollBehavior:'smooth!important'
+  html: {
+    scrollBehavior: "smooth!important",
+    scrollPaddingTop: "$9",
   },
-  'a': {
-  color: 'inherit',
-  textDecoration:' none',
-}
+  a: {
+    color: "inherit",
+    textDecoration: " none",
+  },
 });
 
 GlobalStyles();
