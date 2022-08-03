@@ -35,7 +35,7 @@ const Footer = () => {
         </Grid>
         <Text
           textAlign={"center"}
-          fontSize={2}
+          fontSize={3}
           css={{ color: "$textSecondary", display: "block", my: "$3" ,}}
         >
           Built with ♥ and{" "}
