@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Box, Flex, GradientBtn, Grid, Text, Container } from "../base";
 import { Arrow, Github, LinkedIn, Mail, Sun, Twitter } from "../icons";
+import {keyframes} from "../../stitches.config"
 
 interface LinkType {
   label: string;
@@ -45,6 +46,10 @@ const Hero = () => {
         color: "$textPrimary",
         pb: "$8",
         position: "relative",
+        minHeight: "80vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Container>
@@ -91,13 +96,9 @@ const Hero = () => {
               textAlign={{ "@initial": "center", "@md": "left" }}
               css={{ mw: 550 }}
             >
-              I&apos;m a software engineer based in Toronto, Canada and also a
-              communication and journalism student. I enjoy creating things that
-              live on the internet, whether that be websites, applications, or
-              anything in between. I have been freelancing for a year now while
-              studying at the university and I&apos;ve manage to gain a decent
-              amount of experience and valuable knowledge from all different
-              kinds of fields throughout my projects/work.
+              I&apos;m a self-taught frontend developer based in Nigeria and I make the
+              world a better place by building quality,consistent and fully
+              accessible user interfaces with react.
             </Text>
           </Box>
           <Box
@@ -140,9 +141,33 @@ const Hero = () => {
           </Flex>
         </Grid>
       </Container>
-      <Arrow style={{ position: "absolute", right: 40, bottom: 20 }} />
+      <Box
+        as="a"
+        href="/#experience"
+        css={{
+          width: 50,
+
+          "& svg": {
+            animation: `${Bounce} 2200ms infinite`,
+          },
+          position: "absolute",
+          right: "15%",
+          bottom: "15%",
+          display: "grid",
+          placeItems: "center",
+        }}
+      >
+        <Arrow style={{}} />
+      </Box>
     </Box>
   );
 };
+
+const Bounce= keyframes({
+  "0%": { transform: "translateY(0)" },
+  "50%": { transform: "translateY(-50px)" },
+  "100%": { transform: "translateY(0)" },
+})
+
 
 export default Hero;
