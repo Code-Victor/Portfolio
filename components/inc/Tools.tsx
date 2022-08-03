@@ -93,7 +93,9 @@ const Skill = ({
       onMouseEnter={setHover}
       onMouseLeave={setHover}
     >
-      <Icon color={hover ? color : "currentColor"} />
+      <Icon 
+      style={{transition:'all 300ms ease-in-out'}}
+      color={hover ? color : "currentColor"} />
       <Text>{name}</Text>
     </Flex>
   );
