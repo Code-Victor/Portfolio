@@ -16,7 +16,7 @@ const Container=styled('div',{
         maxWidth:'1280px'
     },
     '@xxl':{
-        maxWidth:'1640px'
+        maxWidth:'1360px'
     },
     variants:{
         padding:{
