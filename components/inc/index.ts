@@ -8,3 +8,7 @@ export {default as Tools} from './Tools'
 export {default as NewsLetter} from './NewsLetter'
 export {default as Blog} from './Blog'
 export {default as Footer} from './Footer'
+export {default as DDoM} from './DDoM'
+export {default as Intro} from './Intro'
+export {default as Journey} from './Journey'
+
