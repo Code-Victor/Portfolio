@@ -26,7 +26,7 @@ const TabHeader = styled("div", {
 
 const Experience = () => {
   return (
-    <Section id="experience" title="Experience" css={{ bg: "$backgroundSecondary" }}>
+    <Section id="experience" title="Experience" css={{ bg: "$backgroundSecondary",overflow:'hidden' }}>
       <Tabs />
     </Section>
   );
