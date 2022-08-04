@@ -82,6 +82,7 @@ export const {
       4: "16px",
       "mid": "18px",
       5: "20px",
+      "5mid":"22px",
       6: "24px",
       7: "28px",
       8: "36px",
