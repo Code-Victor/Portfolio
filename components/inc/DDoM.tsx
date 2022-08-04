@@ -29,10 +29,10 @@ const DDoM = () => {
         </Text>
         <Box css={{position:'relative',maxWidth:720,mx:'auto'}}>
           <Quotes style={{position:'absolute',top:0,opacity:0.3}} />
-          <Text as="p" fontSize={9} textAlign="center"  css={{my:'$4',fontFamily:'$greatVibes'}}>
+          <Text as="p" fontSize={{'@initial':7,'@md':9}} textAlign="center"  css={{my:'$4',fontFamily:'$greatVibes'}}>
            {data?.content}
           </Text>
-          <Text as="h3" fontSize={5} textAlign="center">
+          <Text as="h3" fontSize={{'@initial':3,'@md':5}} textAlign="center">
             {data?.author}
           </Text>
         </Box>

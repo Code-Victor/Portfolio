@@ -7,7 +7,7 @@ const Section = ({ title, children, css ,id}: sectionProps) => {
     <Box css={{pt:'$6',...css}} id={id?id:undefined}>
       <Container>
         <Flex className="tHolder" align="center" gap={2} css={{py:'$5'}}>
-          <Text as='h3'fontFamily={'poppins'}  fontWeight="semibold" fontSize={7} >{title}</Text>
+          <Text as='h3'fontFamily={'poppins'}  fontWeight="semibold" fontSize={{'@initital':'5mid','@md':7}} >{title}</Text>
           <Box className="liner" css={{height:2,flex:1,background:'$textSecondary'}}/>
         </Flex>
       {children}

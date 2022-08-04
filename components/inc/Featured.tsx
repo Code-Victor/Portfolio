@@ -93,8 +93,11 @@ const Card = ({
         objectPosition={"center"}
         objectFit="cover"
       />
-      <Flex direction={"column"} gap={{ "@initial": 3 }}>
-        <Text as="h1" fontSize="5">
+      <Flex direction={"column"} gap={{ "@initial": 2,'@md':3 }}>
+        <Text as="h1" fontSize={{
+         "@initial" :"5",
+         "@md" :"5mid",
+         }}>
           {title}
         </Text>
         <Text as="p" fontSize="3">
@@ -115,7 +118,7 @@ const Card = ({
             </GradientBtn>
           </Text>
           <Text as="a" target="_blank" href={github}>
-            <Github />
+            <Github  style={{width:30,height:30}} />
           </Text>
         </Flex>
       </Flex>

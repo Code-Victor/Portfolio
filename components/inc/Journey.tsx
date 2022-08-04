@@ -26,29 +26,27 @@ const Journey = () => {
     }
   });
   return (
-    <Section title={'My Journey'} css={{'& .tHolder':{pb:'$2'}}}>
-      
-        <Text as="p" fontSize={"mid"} css={{ fontSize: "$" ,mb:'$4'}}>
-          My journey into web development was propelled by my passion to solve
-          problems and build products that could solve day-day human
-          problems.This passion has constantly fueled me through this journey
-          even in times of uncertainties and against all odds I have continued
-          to thrive and learn.
-        </Text>
-        {isMd && (
-          <Box ref={journeyGridRef} css={{}}>
-            {journey.map((item, i) => {
-              return <JourneyGrid key={i} i={i} {...item} />;
-            })}
-          </Box>
-        )}
-        {!isMd && (
-          <Box ref={mobileJourneyGridRef} css={{}}>
-            {journey.map((item, i) => {
-              return <MobileJourneyGrid key={i} i={i} {...item} />;
-            })}
-          </Box>
-        )}
+    <Section title={"My Journey"} css={{ "& .tHolder": { pb: "$2" } }}>
+      <Text as="p" fontSize={{ "@initial": 4, "@md": 'mid' }} css={{ mb: "$4" }}>
+        My journey into web development was propelled by my passion to solve
+        problems and build products that could solve day-day human problems.This
+        passion has constantly fueled me through this journey even in times of
+        uncertainties and against all odds I have continued to thrive and learn.
+      </Text>
+      {isMd && (
+        <Box ref={journeyGridRef} css={{}}>
+          {journey.map((item, i) => {
+            return <JourneyGrid key={i} i={i} {...item} />;
+          })}
+        </Box>
+      )}
+      {!isMd && (
+        <Box ref={mobileJourneyGridRef} css={{}}>
+          {journey.map((item, i) => {
+            return <MobileJourneyGrid key={i} i={i} {...item} />;
+          })}
+        </Box>
+      )}
     </Section>
   );
 };
@@ -88,7 +86,7 @@ const JourneyGrid = ({
               __html: paragraph,
             }}
             as="p"
-            fontSize="4"
+            fontSize={{ "@initial": 3, "@md": 4 }}
             css={{mb:'$4'}}
           ></Text>
         </Box>
@@ -130,7 +128,7 @@ const JourneyGrid = ({
             __html: paragraph,
           }}
           as="p"
-          fontSize="4"
+          fontSize={{ "@initial": 3, "@md": 4 }}
           css={{ mb: "$4" }}
         ></Text>
       </Box>
@@ -199,7 +197,7 @@ const CountBtn = ({ count }: { count: number }) => {
   );
 };
 const DottedLine = styled("div", {
-  border: "2px dashed $textSecondary",
+  borderLeft: "2px dashed $textSecondary",
   width: 0,
   transform: "translateX(50%)",
   flex: 1,
