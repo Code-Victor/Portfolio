@@ -15,25 +15,20 @@ const Btn = styled("div", {
   bc: "$backgroundPrimary",
   variants: {
     size: {
+
       sm: {
-        py: "$1",
-        px: "$2",
-        fontSize: "$1",
-        fontWeight: "light",
-      },
-      md: {
         py: "$2",
         px: "$3",
         fontSize: "$2",
         fontWeight: "light",
       },
-      lg: {
+      md: {
         py: "$3",
         px: "$4",
         fontSize: "$3",
         fontWeight: "light",
     },
-    xl: {
+    lg: {
         py: "$2",
         px: "$6",
         fontSize: "$3",
