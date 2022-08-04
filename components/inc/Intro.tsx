@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Container, Text, Flex } from "../base";
 import Image from "next/image";
 import config from "../../config";
+import { RoughNotation } from "react-rough-notation";
+
 
 const {coreValues}=config;
 const Intro = () => {
@@ -60,12 +62,12 @@ const Intro = () => {
             >
               Background
             </Text>
-            <Text as="p" fontSize={"4"} css={{}}>
-              I am Hamzat victor also know as Code Victor, a frontend developer
+            <Text as="p" fontSize={{ "@initial": 3, "@md": 4 }} css={{}}>
+              I am Hamzat victor also know as <RoughNotation type="highlight" color="gainsboro" show={true}>Code Victor</RoughNotation>, a frontend developer
               based in Nigera I&apos;m in love building simple buy yet modern
               user interfaces without living out accessibilty.
             </Text>
-            <Text as="p" fontSize={"4"} css={{}}>
+            <Text as="p" fontSize={{ "@initial": 3, "@md": 4 }} css={{}}>
               my interest for web development started a few months after
               graduating from high school, I was idle most of the times. Then my
               brother introduced me to programming in python ever since then
