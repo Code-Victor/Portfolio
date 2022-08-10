@@ -43,7 +43,7 @@ export const {
       mono: "Söhne Mono, menlo, monospace",
       inter: "Inter, sans-serif",
       poppins: "Poppins, sans-serif",
-      greatVibes:"Great Vibes,cursive",
+      greatVibes: "Great Vibes,cursive",
       ogg: "Ogg, sans-serif",
     },
     space: {
@@ -80,9 +80,9 @@ export const {
       2: "13px",
       3: "15px",
       4: "16px",
-      "mid": "18px",
+      mid: "18px",
       5: "20px",
-      "5mid":"22px",
+      "5mid": "22px",
       6: "24px",
       7: "28px",
       8: "36px",
@@ -204,6 +204,14 @@ export const {
 
     br: (value: Stitches.PropertyValue<"borderRadius">) => ({
       borderRadius: value,
+    }),
+    blr: (value: Stitches.PropertyValue<"borderTopRightRadius">) => ({
+      borderTopLeftRadius: value,
+      borderBottomLeftRadius: value,
+    }),
+    brr: (value: Stitches.PropertyValue<"borderBottomRightRadius">) => ({
+      borderTopRightRadius: value,
+      borderBottomRightRadius: value,
     }),
     btrr: (value: Stitches.PropertyValue<"borderTopRightRadius">) => ({
       borderTopRightRadius: value,
