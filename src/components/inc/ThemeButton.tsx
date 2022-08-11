@@ -1,34 +1,17 @@
 import React from "react";
 import { Sun, Moon } from "../icons";
-import { Box } from "@components/base";
+import { Box, FloatingActionButton } from "@components/base";
 import { useTheme } from "next-themes";
 import { styled } from "@stitchesConfig";
 
-const FloatingActionButton = styled("button", {
-  position: "fixed",
-  border: "none",
-  outline: "none",
-  bottom: "3vh",
-  right: "5vw",
-  padding: 2,
-  bg: "$gradient4",
-  borderRadius: "50%",
-  "&>*:first-child": {
-    borderRadius: "50%",
-    background: "$textPrimary",
-    size: "55px",
-    color: "$backgroundPrimary",
-    boxShadow: "$shadowLight",
-    display: "grid",
-    placeItems: "center",
-  },
-});
 const ThemeButton = () => {
   const { theme, setTheme } = useTheme();
   console.log({ theme });
   return (
     <FloatingActionButton
-      aria-label="Toggle Theme"
+      aria-label={`${
+        theme === "dark" ? "set theme to light" : "set theme to dark"
+      }`}
       css={{
         overflow: "hidden",
         "@md": {
