@@ -34,7 +34,7 @@ const NewsLetter = () => {
             direction={{ "@initial": "column", "@md": "row" }}
           >
             <InputWrapper>
-              <Text as="label" htmlFor="news-letter" css={{ size: 0 }}></Text>
+              <Text as="label" htmlFor="news-letter" css={{ size: 0 }}>Subscribe to my newsletter</Text>
               <Input id="news-letter" />
             </InputWrapper>
             <GradientBtn
