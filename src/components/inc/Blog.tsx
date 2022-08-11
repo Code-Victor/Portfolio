@@ -23,7 +23,11 @@ const Blog = () => {
       title="Featured Articles"
       css={{
         bg: "$backgroundSecondary",
-        pb: "$8",
+        pb: "$5",
+        '@md':{
+          pb: "$8",
+          
+        }
       }}
       id="articles"
     >
@@ -88,7 +92,7 @@ const Blog = () => {
           </Box>
         );
       })}
-      <Flex justify={"center"} css={{ mt: "$6" }}>
+      <Flex justify={"center"} css={{ mt: "$4",'@md':{mt:'$6'} }}>
         <Link href={"https://medium.com/@oluwaborihamzat"} target="_blank">
           <GradientBtn>Follow Me</GradientBtn>
         </Link>
