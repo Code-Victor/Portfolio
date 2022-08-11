@@ -17,11 +17,11 @@ const LoadingScreen = () => {
         inset: 0,
         position: "fixed",
         bg: "$backgroundPrimary",
-        zIndex: 40,
+        zIndex: "$6",
       }}
     >
       <motion.div
-        initial={{ opacity: 0.2, filter: "blur(20px)" }}
+        initial={{ opacity: 0.3, filter: "blur(15px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 2 }}
         layoutId="logo"
