@@ -1,8 +1,15 @@
 /* eslint-disable max-len */
-import featuredProjects from './featured';
-import projects from './projects';
-import journey from './journey';
-import * as tools from './tools'
+import {
+  SiGithub,
+  SiInstagram,
+  SiTwitter,
+  SiLinkedin,
+  SiCodepen,
+} from "react-icons/si";
+import featuredProjects from "./featured";
+import projects from "./projects";
+import journey from "./journey";
+import * as tools from "./tools";
 
 const config = {
   email: "oluwaborihamzat@gmail.com",
@@ -18,31 +25,36 @@ const config = {
     "Next.js",
     "Python",
   ],
-  coreValues:[
-  { name: "Impact", color: "$gradient2" },
-  { name: "Competence", color: "$gradient3" },
-  { name: "Relationships", color: "$gradient1" },
-],
+  coreValues: [
+    { name: "Impact", color: "$gradient2" },
+    { name: "Competence", color: "$gradient3" },
+    { name: "Relationships", color: "$gradient1" },
+  ],
   socialMedia: [
     {
       name: "GitHub",
       url: "https://github.com/Code-Victor",
+      icon: SiGithub,
     },
     {
       name: "Instagram",
       url: "https://www.instagram.com/hamzatoluwabori",
+      icon: SiInstagram,
     },
     {
       name: "Twitter",
       url: "https://twitter.com/VictorFiery",
+      icon: SiTwitter,
     },
     {
       name: "Linkedin",
       url: "https://www.linkedin.com/in/code-victor/",
+      icon: SiLinkedin,
     },
     {
       name: "Codepen",
       url: "https://codepen.io/code-victor-the-typescripter",
+      icon: SiCodepen,
     },
   ],
   experience: [
@@ -76,18 +88,18 @@ const config = {
     {
       name: "About",
       url: "/about",
-      color:"$gradient3"
+      color: "$gradient3",
     },
     {
       name: "Projects",
       url: "/projects",
-      color:"$gradient1"
+      color: "$gradient1",
     },
     {
       name: "Resume",
       url: "/#",
-      color:"$gradient2"
-      },
+      color: "$gradient2",
+    },
   ],
   colors: {
     green: "#64ffda",
