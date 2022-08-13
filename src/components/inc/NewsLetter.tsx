@@ -46,7 +46,7 @@ const NewsLetter = () => {
           >
             <InputWrapper>
               <Text as="label" htmlFor="news-letter" className={srOnly.toString()}>
-                Subscribe to my newsletter
+                Subscribe to my newsletter!
               </Text>
               <Input id="news-letter" />
             </InputWrapper>
