@@ -1,37 +1,39 @@
 import type { NextPage } from "next";
-import React from "react";
+import React, { Suspense } from "react";
 import Head from "next/head";
 import { SWRConfig } from "swr";
 import {
-  Experience,
   Blog,
-  Featured,
   Hero,
-  NewsLetter,
-  Tools,
-  DDoM,
-
   LoadingScreen,
   ThemeButton,
 } from "@components/inc";
 import { getArticles, returns } from "@utils";
 import { LoaderContext } from "@context";
+import dynamic from "next/dynamic";
+
+const Featured = dynamic(() => import("@components/inc/Featured"));
+const DDoM = dynamic(() => import("@components/inc/DDoM"));
+const NewsLetter = dynamic(() => import("@components/inc/NewsLetter"));
 
 const Home: NextPage<{ fallback: returns }> = ({ fallback }) => {
   const Loader = React.useContext(LoaderContext);
   return (
     <SWRConfig value={{ fallback }}>
-      <>
-
-      {/* <LoadingScreen/> */}
+      <Suspense fallback={<div />}>
+        {/* <LoadingScreen/> */}
+        <Head>
+          <title>Hamzat Victor | Fronted Developer, Writter</title>
+          
+        </Head>
         <Hero />
         {Loader?.loading && <LoadingScreen />}
         <Blog />
         <Featured />
         <DDoM />
         <NewsLetter />
-        <ThemeButton/>
-      </>
+        <ThemeButton />
+      </Suspense>
     </SWRConfig>
   );
 };
