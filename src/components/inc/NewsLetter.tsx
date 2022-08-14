@@ -1,7 +1,18 @@
 import React from "react";
-import { styled } from "@stitchesConfig";
+import { styled, css } from "@stitchesConfig";
 import { Box, Container, Flex, GradientBtn, Text, Divider } from "../base";
 
+const srOnly = css({
+  position: "absolute",
+  width: 1,
+  height: 1,
+  padding: 0,
+  margin: -1,
+  overflow: "hidden",
+  clip: "rect(0, 0, 0, 0)",
+  whiteSpace: "nowrap",
+  borderWidth: 0,
+});
 const NewsLetter = () => {
   return (
     <Box css={{ py: "$9", bg: "$backgroundSecondary" }}>
@@ -34,7 +45,13 @@ const NewsLetter = () => {
             direction={{ "@initial": "column", "@md": "row" }}
           >
             <InputWrapper>
-              <Text as="label" htmlFor="news-letter" css={{ size: 0 }}>Subscribe to my newsletter</Text>
+              <Text
+                as="label"
+                htmlFor="news-letter"
+                className={srOnly.toString()}
+              >
+                Subscribe to my newsletter
+              </Text>
               <Input id="news-letter" />
             </InputWrapper>
             <GradientBtn
@@ -66,8 +83,8 @@ const InputWrapper = styled("div", {
   "@md": {
     p: 1.5,
     flex: 1,
-    btlr: 4,
-    bblr: 4,
+    btrr: 0,
+    bbrr: 0,
     height: "auto",
   },
 });
