@@ -10,13 +10,11 @@ import dynamic from "next/dynamic";
 const Featured = dynamic(() => import("@components/inc/Featured"));
 const DDoM = dynamic(() => import("@components/inc/DDoM"));
 const NewsLetter = dynamic(() => import("@components/inc/NewsLetter"));
-const ThemeButton = dynamic(() => import("@components/inc/ThemeButton"));
 
 const Home: NextPage<{ fallback: returns }> = ({ fallback }) => {
   const Loader = React.useContext(LoaderContext);
   return (
     <SWRConfig value={{ fallback }}>
-      {/* <Suspense fallback={<div />}> */}
       <Head>
         <title>Hamzat Victor | Fronted Developer, Writter</title>
         <meta
@@ -27,11 +25,11 @@ const Home: NextPage<{ fallback: returns }> = ({ fallback }) => {
       <Hero />
       {Loader?.loading && <LoadingScreen />}
       <Blog />
-      <Featured />
-      <DDoM />
-      <NewsLetter />
-      <ThemeButton />
-      {/* </Suspense> */}
+      <Suspense fallback={<div />}>
+        <Featured />
+        <DDoM />
+        <NewsLetter />
+      </Suspense>
     </SWRConfig>
   );
 };

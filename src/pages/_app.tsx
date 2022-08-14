@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import { darkTheme } from "@stitchesConfig";
 import { ThemeProvider } from "next-themes";
-import { Navbar, ThemeButton, FloatingBurger } from "@components/inc";
+import { Navbar, FloatingBurger } from "@components/inc";
 import { LoaderProvider } from "@context";
 import React, { useRef, Suspense } from "react";
 import useToggle from "@hooks/useToogle";
@@ -9,6 +9,7 @@ import dynamic from "next/dynamic";
 
 const MobileNav = dynamic(() => import("@components/inc/MobileNav"));
 const Footer = dynamic(() => import("@components/inc/Footer"));
+const ThemeButton = dynamic(() => import("@components/inc/ThemeButton"));
 
 function MyApp({ Component, pageProps }: AppProps) {
   const render = useRef(true);
@@ -33,16 +34,20 @@ function MyApp({ Component, pageProps }: AppProps) {
         dark: darkTheme.className,
       }}
     >
-      <Suspense fallback={<div />}>
-        <LoaderProvider value={{ loading }}>
-          <FloatingBurger {...{ navOpened, setNavOpened }} />
-          <Navbar />
+      <LoaderProvider value={{ loading }}>
+        <FloatingBurger {...{ navOpened, setNavOpened }} />
+        <Navbar />
+        <Component {...pageProps} />
+        <Suspense fallback={<div />}>
           <MobileNav {...{ navOpened, setNavOpened }} />
+        </Suspense>
+        <Suspense fallback={<div />}>
           <ThemeButton />
-          <Component {...pageProps} />
+        </Suspense>
+        <Suspense fallback={<div />}>
           <Footer />
-        </LoaderProvider>
-      </Suspense>
+        </Suspense>
+      </LoaderProvider>
     </ThemeProvider>
   );
 }
