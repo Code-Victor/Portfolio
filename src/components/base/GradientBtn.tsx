@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { CSS, styled } from "@stitchesConfig";
+import { styled } from "@stitchesConfig";
 
 const Btn = styled("div", {
   bg: "transparent",
@@ -15,7 +15,6 @@ const Btn = styled("div", {
   bc: "$backgroundPrimary",
   variants: {
     size: {
-
       sm: {
         py: "$2",
         px: "$3",
@@ -27,8 +26,8 @@ const Btn = styled("div", {
         px: "$4",
         fontSize: "$3",
         fontWeight: "light",
-    },
-    lg: {
+      },
+      lg: {
         py: "$2",
         px: "$6",
         fontSize: "$3",
@@ -45,7 +44,7 @@ const GradientWrapper = styled("button", {
   variants: {
     gradient: {
       1: {
-        bg:'$gradient1'
+        bg: "$gradient1",
       },
       2: {
         bg: "$gradient2",
@@ -71,16 +70,15 @@ const GradientBtn = ({
   return (
     <GradientWrapper {...props}>
       <Btn
-      size={
-        {
-            '@initial': 'sm',
-            '@md': 'md',
-             '@lg': 'lg',        
-        }
-      }
-      >{children}</Btn>
+        size={{
+          "@initial": "sm",
+          "@md": "md",
+          "@lg": "lg",
+        }}
+      >
+        {children}
+      </Btn>
     </GradientWrapper>
   );
 };
 export default GradientBtn;
-
