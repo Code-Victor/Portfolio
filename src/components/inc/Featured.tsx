@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useEffect, useState } from "react";
 import { Section } from ".";
 import config from "@config";
@@ -30,7 +30,7 @@ const Featured = ({ main = false }: { main?: boolean }) => {
         bg: "$backgroundSecondary",
         pb: "$7",
         "@md": {
-         pb: "$9",
+          pb: "$9",
         },
         [`& .liner`]: {
           display: main ? "none" : "flex",
@@ -43,7 +43,7 @@ const Featured = ({ main = false }: { main?: boolean }) => {
         gapX={4}
         columns={{ "@initial": "1", "@md": "2", "@lg": "3" }}
         css={{
-          mt:'$7',
+          mt: "$7",
           "&:": {
             display: "none",
             bg: "white",
@@ -56,12 +56,19 @@ const Featured = ({ main = false }: { main?: boolean }) => {
       </Grid>
       {!main && (
         <Link href="/projects" passHref>
-          <GradientBtn
-            gradient={3}
-            css={{ display: "block", mx: "auto", mt: "$5" }}
-          >
-            {"See More"}
-          </GradientBtn>
+          <Text as='a'>
+            <GradientBtn
+              gradient={3}
+              css={{
+                display: "block",
+                width: "fit-content",
+                mx: "auto",
+                mt: "$5",
+              }}
+            >
+              {"See More"}
+            </GradientBtn>
+          </Text>
         </Link>
       )}
     </Section>
@@ -70,7 +77,7 @@ const Featured = ({ main = false }: { main?: boolean }) => {
 
 interface CardProps {
   title: string;
-  cover: string;
+  cover: StaticImageData;
   github: string;
   external: string;
   descriptionHtml: string;
@@ -88,17 +95,19 @@ const Card = ({
     <Flex direction="column" gap="2">
       <Image
         src={cover || "/images/project.png"}
-        width={1900}
-        height={1000}
         alt={title}
         objectPosition={"center"}
         objectFit="cover"
+        placeholder="blur"
       />
-      <Flex direction={"column"} gap={{ "@initial": 2,'@md':3 }}>
-        <Text as="h1" fontSize={{
-         "@initial" :"5",
-         "@md" :"5mid",
-         }}>
+      <Flex direction={"column"} gap={{ "@initial": 2, "@md": 3 }}>
+        <Text
+          as="h1"
+          fontSize={{
+            "@initial": "5",
+            "@md": "5mid",
+          }}
+        >
           {title}
         </Text>
         <Text as="p" fontSize="3">
@@ -118,8 +127,8 @@ const Card = ({
               Live demo
             </GradientBtn>
           </Text>
-          <Text as="a" target="_blank" href={github}>
-            <Github  style={{width:30,height:30}} />
+          <Text as="a" target="_blank" href={github} aria-label="github repository link">
+            <Github style={{ width: 30, height: 30 }} />
           </Text>
         </Flex>
       </Flex>
