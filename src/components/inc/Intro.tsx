@@ -3,9 +3,9 @@ import { Box, Container, Text, Flex } from "../base";
 import Image from "next/image";
 import config from "@config";
 import { RoughNotation } from "react-rough-notation";
+import Avatar from "@public/images/Avatar.jpg";
 
-
-const {coreValues}=config;
+const { coreValues } = config;
 const Intro = () => {
   return (
     <Box css={{ py: "$9", bg: "$backgroundSecondary" }}>
@@ -42,12 +42,11 @@ const Intro = () => {
           >
             <AvatarWrapper>
               <Image
-                src="/images/Avatar.jpg"
-                width={350}
-                height={350}
+                src={Avatar}
+                placeholder="blur"
                 style={{}}
-                layout="responsive"
-                alt="my memoji"
+                // layout="responsive"
+                alt="avatar"
               />
             </AvatarWrapper>
           </Box>
@@ -116,7 +115,7 @@ const Intro = () => {
 const ListItem = ({ name, color }: { name: string; color: string }) => {
   return (
     <Flex gap={4} align="center" css={{}}>
-      <Box css={{ size: 20,br:'$round',bg:color }} />
+      <Box css={{ size: 20, br: "$round", bg: color }} />
       <Text as="p" fontSize={"4"} css={{}}>
         {name}
       </Text>
@@ -131,10 +130,9 @@ const AvatarWrapper = ({ children }: { children: React.ReactNode }) => {
         bg: "gainsboro",
         br: "$pill",
         flex: 1,
-        '@md':{
-          
+        "@md": {
           p: "$3",
-        }
+        },
       }}
     >
       <Box
