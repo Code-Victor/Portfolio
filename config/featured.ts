@@ -1,8 +1,14 @@
+import GRD from "@public/images/projects/GRD-thumbnail.png";
+import KeyBr from "@public/images/projects/keyboadr-thumbnail.png";
+import Jadoo from "@public/images/projects/Jadoo-thumbnail.png";
+import Pluralsight from "@public/images/projects/pluralsight-thumbnail.png";
+import SMD from "@public/images/projects/smd-thumbnail.png";
 /* eslint-disable max-len */
+
 const featured = [
   {
     title: "Github Repo Details",
-    cover: "/images/projects/GRD thumbnail.png",
+    cover: GRD,
     github: "https://github.com/Code-Victor/github-repodetails",
     external: "https://github-repodetails.vercel.app/",
     descriptionHtml:
@@ -11,16 +17,16 @@ const featured = [
   },
   {
     title: "Keyboadr",
-    cover: "/images/projects/keyboadr thumbnail.png",
+    cover: KeyBr,
     github: "https://github.com/Code-Victor/keyboarder",
     external: "https://code-victor.github.io/keyboarder/",
     descriptionHtml:
       "I built a app that allows anyone to learn touch typing easily. It is built in a custom dark theme. With an onscreen keyboard, user`s can type in the text area and see the result in real time and also make improvements.",
-    techs: ["React", "Javascript","Css" ,"github"],
+    techs: ["React", "Javascript", "Css", "github"],
   },
   {
     title: "Jadoo Landing Page",
-    cover: "/images/projects/Jadoo thumbnail.png",
+    cover: Jadoo,
     github: "https://github.com/Code-Victor/Jadoo-landing-page",
     external: "https://jadoo-landing-page.vercel.app/",
     descriptionHtml:
@@ -29,7 +35,7 @@ const featured = [
   },
   {
     title: "Pluralsight clone",
-    cover: "/images/projects/pluralsight thumbnail.png",
+    cover: Pluralsight,
     external: "https://code-victor.github.io/Pluralsight-Clone-v2/",
     github: "https://github.com/Code-Victor/Pluralsight-Clone-v2",
     descriptionHtml:
@@ -38,16 +44,16 @@ const featured = [
   },
   {
     title: "Social Media Dashboard",
-    cover: "/images/projects/SMD thumbnail.png",
+    cover: SMD,
     external: "https://code-victor.github.io/dashboard-frontend-mentor/",
     github: "https://github.com/Code-Victor/dashboard-frontend-mentor",
     descriptionHtml:
-    "A static social Media Dashboard with light and dark Mode and nice user interface",
-    techs: ["React.js", "tailwindCSS","headless ui"],
+      "A static social Media Dashboard with light and dark Mode and nice user interface",
+    techs: ["React.js", "tailwindCSS", "headless ui"],
   },
   {
     title: "Crowdfunding  Page",
-    cover: "/images/projects/SMD thumbnail.png",
+    cover: SMD,
     external: "https://code-victor.github.io/crowdfunding-product-page/",
     github: "https://github.com/Code-Victor/crowdfunding-product-page",
     descriptionHtml:
@@ -55,4 +61,4 @@ const featured = [
     techs: ["HTML", "CSS", "Javascript"],
   },
 ];
-export default featured
+export default featured;
