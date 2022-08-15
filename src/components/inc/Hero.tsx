@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Box, Flex, GradientBtn, Grid, Text, Container } from "../base";
 import { Arrow, Github, LinkedIn, Mail, Sun, Twitter } from "../icons";
-import {keyframes} from "@stitchesConfig"
+import { keyframes } from "@stitchesConfig";
 
 interface LinkType {
   label: string;
@@ -44,18 +44,17 @@ const Hero = () => {
       css={{
         bg: "$backgroundPrimary",
         color: "$textPrimary",
-        pt:80,
+        pt: 80,
         pb: 40,
         position: "relative",
-        
+
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         "@md": {
-        pt:250,
-        pb: 150,
-
-        }
+          pt: 250,
+          pb: 150,
+        },
       }}
     >
       <Container>
@@ -84,7 +83,7 @@ const Hero = () => {
               Hey, I&apos;m
             </Text>
             <Text
-              fontSize={{ "@initial": 8,"@sm":9, "@md": 10 }}
+              fontSize={{ "@initial": 8, "@sm": 9, "@md": 10 }}
               fontFamily="poppins"
               fontWeight={"semibold"}
               css={{
@@ -102,9 +101,9 @@ const Hero = () => {
               textAlign={{ "@initial": "center", "@md": "left" }}
               css={{ mw: 550 }}
             >
-              I&apos;m a self-taught frontend developer based in Nigeria and I make the
-              world a better place by building quality,consistent and fully
-              accessible user interfaces with react.
+              I&apos;m a self-taught frontend developer based in Nigeria and I
+              make the world a better place by building quality,consistent and
+              fully accessible user interfaces with react.
             </Text>
           </Box>
           <Box
@@ -117,7 +116,7 @@ const Hero = () => {
             }}
           >
             <Image
-              src={"/images/my memoji.png"}
+              src={"/images/my-memoji.png"}
               width={350}
               height={350}
               alt="my memoji"
@@ -162,6 +161,7 @@ const Hero = () => {
           display: "grid",
           placeItems: "center",
         }}
+        aria-label={"go to main section"}
       >
         <Arrow style={{}} />
       </Box>
@@ -169,11 +169,10 @@ const Hero = () => {
   );
 };
 
-const Bounce= keyframes({
+const Bounce = keyframes({
   "0%": { transform: "translateY(0)" },
   "50%": { transform: "translateY(-50px)" },
   "100%": { transform: "translateY(0)" },
-})
-
+});
 
 export default Hero;
