@@ -69,7 +69,12 @@ const Card = ({
             Live demo
           </GradientBtn>
         </Text>
-        <Text as="a" target="_blank" href={github}>
+        <Text
+          as="a"
+          target="_blank"
+          href={github}
+          aria-label="github repository link"
+        >
           <Github />
         </Text>
       </Flex>
