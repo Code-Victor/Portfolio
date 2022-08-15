@@ -16,6 +16,7 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
+      "@public/*": ["public/*"],
       "@components/*": ["src/components/*"],
       "@config": ["config/index.ts"],
       "@context": ["src/context/index.ts"],
