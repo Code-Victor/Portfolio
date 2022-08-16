@@ -1,9 +1,8 @@
 import GRD from "@public/images/projects/GRD-thumbnail.png";
 import KeyBr from "@public/images/projects/keyboadr-thumbnail.png";
 import Jadoo from "@public/images/projects/Jadoo-thumbnail.png";
-import Pluralsight from "@public/images/projects/pluralsight-thumbnail.png";
-import SMD from "@public/images/projects/smd-thumbnail.png";
-/* eslint-disable max-len */
+import Pluralsight from "@public/images/projects/Pluralsight-thumbnail.png";
+import SMD from "@public/images/projects/SMD-thumbnail.png";
 
 const featured = [
   {
