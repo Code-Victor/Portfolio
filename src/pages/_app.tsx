@@ -6,6 +6,7 @@ import { LoaderProvider } from "@context";
 import React, { useRef, Suspense } from "react";
 import useToggle from "@hooks/useToogle";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 
 const MobileNav = dynamic(() => import("@components/inc/MobileNav"));
 const Footer = dynamic(() => import("@components/inc/Footer"));
@@ -35,6 +36,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       <LoaderProvider value={{ loading }}>
+        <Head>
+          <title>Hamzat Victor | Fronted Developer, Writter</title>
+          <meta
+            name="description"
+            content="Passionate Front-end engineer with react. Change the world one line of code at a time. Enjoy building accessible web interfaces while not leaving out visual consistency with the help of design systems."
+          />
+        </Head>
         <FloatingBurger {...{ navOpened, setNavOpened }} />
         <Navbar />
         <Component {...pageProps} />
