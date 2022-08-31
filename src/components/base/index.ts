@@ -8,3 +8,4 @@ export { default as Divider } from "./Divider";
 export { default as NiceLink } from "./NiceLink";
 export { default as FloatingActionButton } from "./FAB";
 export { default as Hamburger } from "./Hamburger";
+export { default as Caption } from "./Caption";
