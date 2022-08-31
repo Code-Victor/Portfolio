@@ -10,7 +10,7 @@ import rehypePrism from "rehype-prism-plus";
 import { css } from "@stitchesConfig";
 import { getSC, getSCSlug, PostMeta } from "src/pages/api";
 import { Box, Container, GradientBtn, Text,Caption } from "@components/base";
-import { Multitab, TechStacks } from "@components/inc";
+import { Multitab, TechStacks, ImageSlider } from "@components/inc";
 import "prism-themes/themes/prism-atom-dark.min.css";
 
 interface MDXShowcase {
@@ -101,7 +101,7 @@ const Showcase = ({ showcase }: { showcase: MDXShowcase }) => {
         </Text>
         <MDXRemote
           {...showcase.source}
-          components={{ Box, GradientBtn, Multitab, Image, TechStacks,Caption }}
+          components={{ Box, GradientBtn, Multitab, Image, TechStacks,Caption,ImageSlider }}
         />
       </Container>
     </Box>
