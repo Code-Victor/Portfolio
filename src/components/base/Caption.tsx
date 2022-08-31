@@ -6,20 +6,21 @@ const FigCaption = styled("figcaption", {
   opacity: 0.8,
   ta: "center",
 });
-
+const Figure = styled("figure");
+type FigureTypes = React.ComponentProps<typeof Figure>;
 const Caption = ({
   caption,
   children,
-  ...imgProps
+  ...props
 }: {
   caption: string;
   children: React.ReactNode;
-}) => {
+} & FigureTypes) => {
   return (
-    <figure>
+    <Figure {...props}>
       {children}
       <FigCaption>{caption}</FigCaption>
-    </figure>
+    </Figure>
   );
 };
 
