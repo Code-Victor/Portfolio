@@ -1,5 +1,5 @@
 import { Flex, Box, Text } from "@components/base";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { IconType } from "react-icons";
 import { Vite } from "@components/icons";
 import {
@@ -77,6 +77,33 @@ const stacks: stack[] = [
   },
 ];
 const TechStack = ({ stack }: { stack: stackName }) => {
+  const [glow, setGlow] = useState<Record<"x" | "y", number>>({
+    x: -100,
+    y: -100,
+  });
+  const stackRef = React.useRef<HTMLDivElement>(null);
+  function mouseMoveEvent(e: MouseEvent) {
+    if (stackRef.current) {
+      const { x, y } = stackRef.current.getBoundingClientRect();
+      setGlow({ x: e.clientX - x, y: e.clientY - y });
+      // stackRef.current.style.setProperty("--x", ().toString());
+      // stackRef.current.style.setProperty("--y", ().toString());
+      // console.log(e.clientX - y);
+    }
+  }
+
+  useEffect(() => {
+    const stackCurrent = stackRef.current;
+    if (stackCurrent) {
+      stackCurrent.addEventListener("mousemove", mouseMoveEvent);
+    }
+    return () => {
+      if (stackCurrent) {
+        stackCurrent.removeEventListener("mousemove", mouseMoveEvent);
+        console.log("removed");
+      }
+    };
+  }, [stackRef]);
   const {
     icon: Icon,
     name,
@@ -87,6 +114,7 @@ const TechStack = ({ stack }: { stack: stackName }) => {
       direction="column"
       align={"center"}
       gap="2"
+      ref={stackRef}
       css={{
         px: "$4",
         py: "$5",
@@ -94,7 +122,29 @@ const TechStack = ({ stack }: { stack: stackName }) => {
         bg: "$tab",
         maxWidth: 220,
         minWidth: 180,
+        overflow: "hidden",
         "& svg": { size: "4.5rem" },
+        position: "relative",
+        "&::after": {
+          content: `''`,
+          size: 240,
+          zIndex: 2,
+          br: "$round",
+          position: "absolute",
+          top: glow.y - 120,
+          left: glow.x - 120,
+          bg: "radial-gradient($textPrimary,transparent 80%)",
+          filter: "blur(20px)",
+          opacity: 0,
+          transition: "opacity 0.4s",
+        },
+        "&:hover::after": {
+          opacity: 0.5,
+        },
+        "&>*": {
+          position: "relative",
+          zIndex: 3,
+        },
       }}
     >
       <Icon color={color ?? "currentColor"} />
