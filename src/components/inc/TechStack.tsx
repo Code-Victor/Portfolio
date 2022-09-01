@@ -136,10 +136,10 @@ const TechStack = ({ stack }: { stack: stackName }) => {
           bg: "radial-gradient($textPrimary,transparent 80%)",
           filter: "blur(20px)",
           opacity: 0,
-          transition: "opacity 0.4s",
+          transition: "opacity 0.4s ease-in-out",
         },
         "&:hover::after": {
-          opacity: 0.5,
+          opacity: 0.4,
         },
         "&>*": {
           position: "relative",
