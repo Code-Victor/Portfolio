@@ -301,7 +301,7 @@ export const GlobalStyles = globalCss({
   },
   a: {
     color: "inherit",
-    textDecoration: " none",
+    textDecoration: " underline",
   },
 });
 
