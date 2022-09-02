@@ -112,9 +112,13 @@ const Card = ({
         >
           {title}
         </Text>
-        <Text as="p" fontSize="3">
-          {descriptionHtml}
-        </Text>
+        <Text
+          as="p"
+          dangerouslySetInnerHTML={{
+            __html: descriptionHtml,
+          }}
+          fontSize="3"
+        ></Text>
         <Flex gap="2">
           {techs.map((tech) => (
             <Text key={tech} css={{ color: "$link" }}>
@@ -125,7 +129,13 @@ const Card = ({
         <Flex align={"center"} gap={{ "@initial": 2 }} css={{ mt: "$5" }}>
           {showCase ? (
             <Link href={`/projects/${showCase}`}>
-              <GradientBtn br="lg">
+              <GradientBtn
+                br="lg"
+                css={{
+                  "& svg": { size: 20, transition: "all 400ms ease-in-out" },
+                  "&:hover svg": { marginLeft: 5 },
+                }}
+              >
                 Learn More
                 <ChevronRight />
               </GradientBtn>
