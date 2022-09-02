@@ -1,7 +1,8 @@
-import { Flex, Box, Text } from "@components/base";
 import React, { useCallback, useEffect, useState } from "react";
+import VanillaTilt from "vanilla-tilt";
+import { Flex, Box, Text } from "@components/base";
 import { IconType } from "react-icons";
-import { Firebase, Vite } from "@components/icons";
+import { Firebase, Vite, FramerMotion } from "@components/icons";
 import {
   SiCss3,
   SiJavascript,
@@ -30,6 +31,7 @@ type stackName =
   | "Node.js"
   | "Vite"
   | "Firebase"
+  | "Framer Motion"
   | "Tailwind CSS";
 interface stack {
   name: stackName;
@@ -45,7 +47,7 @@ const stacks: stack[] = [
   {
     name: "Next.js",
     icon: SiNextdotjs,
-    color: "#339933",
+    color: "currentColor",
   },
   {
     name: "Redux",
@@ -80,6 +82,10 @@ const stacks: stack[] = [
     icon: SiTailwindcss,
     color: "#61DAFB",
   },
+  {
+    name: "Framer Motion",
+    icon: FramerMotion,
+  },
 ];
 const TechStack = ({ stack }: { stack: stackName }) => {
   const [glow, setGlow] = useState<Record<"x" | "y", number>>({
@@ -91,20 +97,21 @@ const TechStack = ({ stack }: { stack: stackName }) => {
     if (stackRef.current) {
       const { x, y } = stackRef.current.getBoundingClientRect();
       setGlow({ x: e.clientX - x, y: e.clientY - y });
-      // stackRef.current.style.setProperty("--x", ().toString());
-      // stackRef.current.style.setProperty("--y", ().toString());
-      // console.log(e.clientX - y);
     }
   }
 
   useEffect(() => {
-    const stackCurrent = stackRef.current;
-    if (stackCurrent) {
-      stackCurrent.addEventListener("mousemove", mouseMoveEvent);
+    const stackNode = stackRef.current;
+    if (stackNode) {
+      stackNode.addEventListener("mousemove", mouseMoveEvent);
+      VanillaTilt.init(stackNode, {
+        max: 25,
+        speed: 300,
+      });
     }
     return () => {
-      if (stackCurrent) {
-        stackCurrent.removeEventListener("mousemove", mouseMoveEvent);
+      if (stackNode) {
+        stackNode.removeEventListener("mousemove", mouseMoveEvent);
         console.log("removed");
       }
     };
