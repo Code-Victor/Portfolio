@@ -7,6 +7,7 @@ import React, { useRef, Suspense } from "react";
 import useToggle from "@hooks/useToogle";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import "../styles/highlight.css"
 
 const MobileNav = dynamic(() => import("@components/inc/MobileNav"));
 const Footer = dynamic(() => import("@components/inc/Footer"));

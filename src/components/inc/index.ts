@@ -15,3 +15,6 @@ export { default as ThemeButton } from "./ThemeButton";
 export { default as LoadingScreen } from "./LoadingScreen";
 export { default as MobileNav } from "./MobileNav";
 export { default as FloatingBurger } from "./FloatingBurger";
+export { default as Multitab } from "./Multitab";
+export { default as TechStacks } from "./TechStack";
+export { default as ImageSlider } from "./ImageSlider";

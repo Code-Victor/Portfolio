@@ -1,0 +1,93 @@
+---
+title: Keyboadr:the easiest way to learn keyboarding.
+tags:
+  - react
+  - optimization
+  - css
+  - hooks
+  - javscript
+
+date: 18-8-2022
+excerpt: Building a multi page App to Check github repository stats/data at a glance
+---
+
+<Caption caption="keyboadr thumbnail">
+  <Image
+    src="../../images/projects/keyboadr-thumbnail-slim.png"
+    alt="project"
+    width={1651}
+    height={640}
+  />
+</Caption>
+As a beginner software developer, I was always facinated by how senior developers
+wrote code very fast. I began searching for ways to learn to write code faster and
+I found this [typing Club](https://keyboardr.com) website. the website was so ground
+to earth and as I went through it I moved from about 24 wpm to about 60 wpm with
+a month. I couldn't hide this acheivement I just kept on telling everyone about it.
+Months later, I began thinking of a projects to build. I didn't want to build generic
+projects. I wanted somethng unique , something I would love to use for myself.Then
+I came up with Keyboadr a website to learn/practice keyboarding.
+
+## Tech stack
+
+<TechStacks stackNames={["React", "JavaScript", "CSS3", "Vite"]} />
+
+## Features
+
+- keyboard on screen to show you the key you are typing and if they are correct or not
+- Fetching strings to type from a quotes api.
+- Typing speed is calculated and displayed
+
+## Future plans
+
+- Ability to save your progress and load it back in
+
+## Screenshots
+
+<ImageSlider
+  images={[
+    {
+      src: "../../images/slides/keyboadr-1.png",
+      caption: "Idle state",
+    },
+    {
+      src: "../../images/slides/keyboadr-2.png",
+      caption: "Correct state",
+    },
+    {
+      src: "../../images/slides/keyboadr-3.png",
+      caption: "Error state",
+    },
+    {
+      src: "../../images/slides/keyboadr-4.png",
+      caption: "Completed practice",
+    },
+  ]}
+/>
+
+## Lessons Learned
+
+- **CSS Grid**: I was able to build the keyboard layout without using an svg all with CSS grid. It was a great learning experience.
+  I add to make sure each item iteracted well with it's peers, or else the keyboard layout falls apart.
+- **Data Fetching**: I was able to fetch data conditionally with useEffects only when the data is need and store them in states to ensure the dynamic rendering of the new data.
+- **Optimization is Key!**: Completing the project I was shocked to see the keyboard layout rendering everytime my counter increases. I was able to optimize the code by using hooks and memoization.
+
+<Caption caption="optimizing the keyboard component">
+```jsx {2,11} showLineNumbers
+//keyboard.jsx
+export default React.memo(Keyboard, areEqual);
+
+//App.jsx
+import Keyboard from "./keyboard";
+
+export default App=()=>{
+  //...
+  <div className="App">
+    {/*other code*/}
+    <Keyboard />
+  </div>
+};
+```
+</Caption>
+- **Search Engine Optimization**: I worked extensively on the head tag to insure better
+Search engine optimization.

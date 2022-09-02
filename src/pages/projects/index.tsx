@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Container,Text } from "../components/base";
-import { Featured, Projects } from "../components/inc";
+import { Box, Container,Text } from "../../components/base";
+import { Featured, Projects } from "../../components/inc";
 
 const projects = () => {
   return (

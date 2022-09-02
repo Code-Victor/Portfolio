@@ -22,7 +22,7 @@ const journey = [
   {
     title: "I wrote my first Blog post.",
     paragraph:
-      "I always add a passion for teaching, so I began a blog post to teach people about tech and productive software development. here is my first post about <a href='https://medium.com/@oluwaborihamzat/layout-animations-with-framer-motion-25807bfc3750' target='_blank'>Layout animations</a> for the web.",
+      "I always add a passion for teaching, so I began a blog post to teach people about tech and productive software development. You can read my first post about Layout animations for the web on <a href='https://medium.com/@oluwaborihamzat/layout-animations-with-framer-motion-25807bfc3750' target='_blank'>Medium</a> .",
   },
 ];
-export default journey
+export default journey;

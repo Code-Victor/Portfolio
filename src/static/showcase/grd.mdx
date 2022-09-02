@@ -1,0 +1,79 @@
+---
+title: How I built GitHub Repo Details
+tags:
+  - react
+  - hooks
+  - javscript
+  - redux
+  - firebase
+  - authentication
+date: 18-8-2022
+excerpt: Building a multi page App to Check github repository stats/data at a glance
+---
+
+<Caption caption="Github repo Details thumbnail">
+  <Image
+    src="../../images/projects/GRD-thumbnail-slim.png"
+    alt="project"
+    width={1651}
+    height={640}
+  />
+</Caption>
+
+GitHub repository information gleaned from assisting a friend in learning Redux. I was also a novice at the moment, so we fell into a lot of trouble figuring things out on a live call. I remember thinking about how to make use of Firebase. The docs weren't as explanatory as we wanted them to be. I moved back and forth between different YouTube tutorials and GitHub repositories just to be able to get where the project is today. This project is a milestone in my learning process. I worked with tools that weren't just for composing user interfaces (UI) alone but for managing state and authentication as well. With this project, I gained confidence in my skills.
+## Tech Stacks
+
+<TechStacks
+  stackNames={[
+    "React",
+    "Redux",
+    "Firebase",
+    "JavaScript",
+    "Tailwind CSS",
+    "Vite",
+  ]}
+/>
+
+## Features
+
+- Authentication with Firebase
+- Data Fetching by Redux Toolkit Query.
+- State Management with Redux
+- Dark and Light Mode powered by (Tailwind CSS)[https://tailwindcss.com].
+- Fully Accessbile Navigation bar.
+- Excellent User Interface similar to that of Github.
+
+## Future plans
+
+- Searching for any repsitory of choice.
+- Charts and graphs.
+
+## Screenshots
+
+<ImageSlider
+  images={[
+    {
+      src: "../../images/slides/grd-1.png",
+      caption: "Light Mode",
+    },
+    {
+      src: "../../images/slides/grd-2.png",
+      caption: "Dark Mode",
+    },
+    {
+      src: "../../images/slides/grd-3.png",
+      caption: "Sticky Nav",
+    },
+    {
+      src: "../../images/slides/grd-4.png",
+      caption: "Logging Screen",
+    },
+  ]}
+/>
+
+## Lessons Learned
+
+- **Authentication**: I learned how authentication works and implemented it in React with Firebase.
+- **Envirmontal Variables**: To protect my firebase identity from hackers ,I used environmental variables.
+- **Data Fetching with Redux**: I had a fun experience fetching data without using useEffects. I simply called my predefined hooks. It also made it easy to handle errors and load states.
+- **You Learn by Teaching Others**: I probably wouldn't know redux if I hadn't tried to teach it. Teaching someone really made me learn more about from their questions and responses.

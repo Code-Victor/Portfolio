@@ -4,7 +4,7 @@ import { Section } from ".";
 import config from "@config";
 import { Flex, Grid, Box, Text, GradientBtn, Divider } from "../base";
 import { useLg, useMd } from "@hooks/useMediaQuery";
-import { Github, LinkIcon } from "../icons";
+import { ChevronRight, Github, LinkIcon } from "../icons";
 import Link from "next/link";
 
 const { featuredProjects } = config;
@@ -56,7 +56,7 @@ const Featured = ({ main = false }: { main?: boolean }) => {
       </Grid>
       {!main && (
         <Link href="/projects" passHref>
-          <Text as='a'>
+          <Text as="a">
             <GradientBtn
               gradient={3}
               css={{
@@ -79,6 +79,7 @@ interface CardProps {
   title: string;
   cover: StaticImageData;
   github: string;
+  showCase?: string;
   external: string;
   descriptionHtml: string;
   techs: string[];
@@ -87,6 +88,7 @@ const Card = ({
   title,
   descriptionHtml,
   cover,
+  showCase,
   techs,
   github,
   external,
@@ -110,9 +112,13 @@ const Card = ({
         >
           {title}
         </Text>
-        <Text as="p" fontSize="3">
-          {descriptionHtml}
-        </Text>
+        <Text
+          as="p"
+          dangerouslySetInnerHTML={{
+            __html: descriptionHtml,
+          }}
+          fontSize="3"
+        ></Text>
         <Flex gap="2">
           {techs.map((tech) => (
             <Text key={tech} css={{ color: "$link" }}>
@@ -121,15 +127,37 @@ const Card = ({
           ))}
         </Flex>
         <Flex align={"center"} gap={{ "@initial": 2 }} css={{ mt: "$5" }}>
-          <Text as="a" target="_blank" href={external}>
-            <GradientBtn>
-              <LinkIcon />
-              Live demo
-            </GradientBtn>
-          </Text>
-          <Text as="a" target="_blank" href={github} aria-label="github repository link">
-            <Github style={{ width: 30, height: 30 }} />
-          </Text>
+          {showCase ? (
+            <Link href={`/projects/${showCase}`}>
+              <GradientBtn
+                br="lg"
+                css={{
+                  "& svg": { size: 20, transition: "all 400ms ease-in-out" },
+                  "&:hover svg": { marginLeft: 5 },
+                }}
+              >
+                Learn More
+                <ChevronRight />
+              </GradientBtn>
+            </Link>
+          ) : (
+            <>
+              <Text as="a" target="_blank" href={external}>
+                <GradientBtn>
+                  <LinkIcon />
+                  Live demo
+                </GradientBtn>
+              </Text>
+              <Text
+                as="a"
+                target="_blank"
+                href={github}
+                aria-label="github repository link"
+              >
+                <Github style={{ width: 30, height: 30 }} />
+              </Text>
+            </>
+          )}
         </Flex>
       </Flex>
     </Flex>
