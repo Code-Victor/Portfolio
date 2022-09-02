@@ -26,7 +26,7 @@ export const {
       gradient3: "linear-gradient(45.4deg, #F4426C 6.41%, #FBF2B1 98.99%)",
       gradient4: "linear-gradient(132.33deg, #D24074 -0.67%, #6518B4 102.54%)",
       link: "#6CACE4",
-      tab: "rgba(31,30,30,0.1)",
+      tab: "#e4e4e4",
 
       // Semantic colors
       hiContrast: "$slate12",
