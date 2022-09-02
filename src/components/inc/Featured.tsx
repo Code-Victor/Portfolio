@@ -66,7 +66,7 @@ const Featured = ({ main = false }: { main?: boolean }) => {
                 mt: "$5",
               }}
             >
-              {"See More"}
+              {"See More Projects"}
             </GradientBtn>
           </Text>
         </Link>
@@ -136,7 +136,7 @@ const Card = ({
                   "&:hover svg": { marginLeft: 5 },
                 }}
               >
-                Learn More
+                View Project
                 <ChevronRight />
               </GradientBtn>
             </Link>
