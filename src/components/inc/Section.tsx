@@ -34,7 +34,7 @@ const Section = ({
             />
           )}
           <Text
-            as="h3"
+            as="h2"
             fontFamily={"poppins"}
             fontWeight="semibold"
             fontSize={{ "@initital": "5mid", "@md": 7 }}
