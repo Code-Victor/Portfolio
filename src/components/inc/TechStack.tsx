@@ -1,23 +1,17 @@
 import { Flex, Box, Text } from "@components/base";
 import React, { useCallback, useEffect, useState } from "react";
 import { IconType } from "react-icons";
-import { Vite } from "@components/icons";
+import { Firebase, Vite } from "@components/icons";
 import {
-  SiHtml5,
   SiCss3,
-  SiSass,
   SiJavascript,
   SiReact,
-  SiGraphql,
-  SiNodedotjs,
   SiNextdotjs,
-  SiElectron,
   SiRedux,
   SiFigma,
   SiStorybook,
-  SiAdobe,
   SiTypescript,
-  SiVite,
+  SiTailwindcss,
 } from "react-icons/si";
 type stackName =
   | "React"
@@ -34,7 +28,9 @@ type stackName =
   | "HTML5"
   | "JavaScript"
   | "Node.js"
-  | "Vite";
+  | "Vite"
+  | "Firebase"
+  | "Tailwind CSS";
 interface stack {
   name: stackName;
   icon: IconType;
@@ -74,6 +70,15 @@ const stacks: stack[] = [
   {
     name: "Vite",
     icon: Vite,
+  },
+  {
+    name: "Firebase",
+    icon: Firebase,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: SiTailwindcss,
+    color: "#61DAFB",
   },
 ];
 const TechStack = ({ stack }: { stack: stackName }) => {
@@ -116,14 +121,26 @@ const TechStack = ({ stack }: { stack: stackName }) => {
       gap="2"
       ref={stackRef}
       css={{
-        px: "$4",
-        py: "$5",
+        px: "$2",
+        py: "$3",
         br: "$4",
         bg: "$tab",
         maxWidth: 220,
-        minWidth: 180,
+        minWidth: 150,
         overflow: "hidden",
-        "& svg": { size: "4.5rem" },
+        scrollSnapAlign: "start",
+        "@md": {
+          minWidth: 180,
+          px: "$4",
+          py: "$5",
+          br: "$4",
+        },
+        "& svg": {
+          size: "3rem",
+          "@md": {
+            size: "4.5rem",
+          },
+        },
         position: "relative",
         "&::after": {
           content: `''`,
@@ -137,6 +154,7 @@ const TechStack = ({ stack }: { stack: stackName }) => {
           filter: "blur(20px)",
           opacity: 0,
           transition: "opacity 0.4s ease-in-out",
+          "@md": {},
         },
         "&:hover::after": {
           opacity: 0.4,
@@ -157,7 +175,16 @@ const TechStack = ({ stack }: { stack: stackName }) => {
 
 const TechStacks = ({ stackNames }: { stackNames: stackName[] }) => {
   return (
-    <Flex gap="4" css={{ mx: "auto", maxWidth: 1080 }}>
+    <Flex
+      gap={{ "@initial": "3", "@md": "4" }}
+      css={{
+        mx: "auto",
+        maxWidth: 1080,
+        overflow: "auto",
+        scrollSnapType: "x mandatory",
+        "&::-webkit-scrollbar": { width: 0, bg: "transparent" },
+      }}
+    >
       {stackNames.map((name) => (
         <TechStack stack={name} key={name} />
       ))}
