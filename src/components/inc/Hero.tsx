@@ -1,5 +1,6 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Box, Flex, GradientBtn, Grid, Text, Container } from "../base";
 import { Arrow, Github, LinkedIn, Mail, Sun, Twitter } from "../icons";
 import { keyframes } from "@stitchesConfig";
@@ -135,12 +136,16 @@ const Hero = () => {
           >
             {Links.map((link, i) => {
               return (
-                <GradientBtn key={i} gradient={link.variant as variant}>
-                  {link.icon}
-                  <Text as="span" fontSize={3}>
-                    {link.label}
-                  </Text>
-                </GradientBtn>
+                <Link href={link.href} key={i} passHref>
+                  <a target="_blank">
+                    <GradientBtn gradient={link.variant as variant}>
+                      {link.icon}
+                      <Text as="span" fontSize={3}>
+                        {link.label}
+                      </Text>
+                    </GradientBtn>
+                  </a>
+                </Link>
               );
             })}
           </Flex>
