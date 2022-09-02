@@ -10,17 +10,20 @@ const featured = [
     cover: GRD,
     github: "https://github.com/Code-Victor/github-repodetails",
     external: "https://github-repodetails.vercel.app/",
+    showCase:"grd",
     descriptionHtml:
-      "A simple app with excellent ui that allows you to log into your github account and get your repository details at a glance. It also supports complex search and theming ",
+    "A simple app with excellent ui that allows you to log into your github account and get your repository details at a glance. It also supports complex search and theming ",
     techs: ["React", "Redux", "Firebase", "Tailwind"],
   },
+  
   {
     title: "Keyboadr",
     cover: KeyBr,
     github: "https://github.com/Code-Victor/keyboarder",
     external: "https://code-victor.github.io/keyboarder/",
+    showCase:"keyboadr",
     descriptionHtml:
-      "I built a app that allows anyone to learn touch typing easily. It is built in a custom dark theme. With an onscreen keyboard, user`s can type in the text area and see the result in real time and also make improvements.",
+    "I built a app that allows anyone to learn touch typing easily. It is built in a custom dark theme. With an onscreen keyboard, user`s can type in the text area and see the result in real time and also make improvements.",
     techs: ["React", "Javascript", "Css", "github"],
   },
   {
@@ -28,6 +31,7 @@ const featured = [
     cover: Jadoo,
     github: "https://github.com/Code-Victor/Jadoo-landing-page",
     external: "https://jadoo-landing-page.vercel.app/",
+    showCase:"jadoo",
     descriptionHtml:
       "A Beautiful and pixel perfect implementation of a design for Jadoo, a travel agency.This was done with accessibility in mind and gentle animations to make the site more user friendly and lively.",
     techs: ["React", "Next.js", "framer-motion", "tailwind"],
