@@ -12,7 +12,8 @@ const Icon = ({
   icon,
   className,
   location,
-  ...other
+  onClick,
+  style,
 }: {
   icon: React.ReactNode;
   location: "left" | "right";
@@ -23,14 +24,16 @@ const Icon = ({
   const disabled = className?.includes("slick-disabled");
   return (
     <Box
+      onClick={onClick}
+      style={style}
       as="button"
-      {...other}
       css={{
         $$shadowColor: "$colors$textPrimary",
         apperance: "none",
         border: "none",
+        color: "$textPrimary",
         bg: "$tab",
-        size: "$8",
+        size: 55,
         opacity: disabled ? 0 : 1,
         br: "$round",
         left: location === "left" ? "-$4" : "auto",
@@ -58,8 +61,18 @@ const settings: Settings = {
   slidesToShow: 2.5,
   slidesToScroll: 1,
   arrows: true,
-  nextArrow: <Icon icon={<ArrowRight />} location="right" />,
-  prevArrow: <Icon icon={<ArrowLeft />} location="left" />,
+  nextArrow: (
+    <Icon
+      icon={<ArrowRight style={{ width: 25, height: 25 }} />}
+      location="right"
+    />
+  ),
+  prevArrow: (
+    <Icon
+      icon={<ArrowLeft style={{ width: 25, height: 25 }} />}
+      location="left"
+    />
+  ),
 
   responsive: [
     {
@@ -78,9 +91,10 @@ interface image {
 }
 const ImageSlider = ({ images }: { images: image[] }) => {
   const [activeSlide, setActiveSlide] = React.useState<null | number>(null);
+  const closeModal = () => setActiveSlide(null);
   const escapeModal = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") {
-      setActiveSlide(null);
+      closeModal();
     }
   }, []);
 
@@ -102,10 +116,12 @@ const ImageSlider = ({ images }: { images: image[] }) => {
             placeItems: "center",
             zIndex: "$max",
           }}
+          onClick={closeModal}
         >
           <Caption
             caption={images[activeSlide].caption}
             css={{ width: "90%", maxWidth: 900 }}
+            onClick={(e) => e.stopPropagation()}
           >
             <Box as={motion.div} layoutId={`slide-${activeSlide}`}>
               <AspectRatio.Root ratio={16 / 9}>
