@@ -3,7 +3,6 @@ import { styled } from "@stitchesConfig";
 
 const Btn = styled("div", {
   bg: "transparent",
-
   height: "100%",
   width: "100%",
   display: "flex",
@@ -11,7 +10,6 @@ const Btn = styled("div", {
   ai: "center",
   color: "$textPrimary",
   fontWeight: "light",
-  br: 4,
   bc: "$backgroundPrimary",
   variants: {
     size: {
@@ -28,9 +26,9 @@ const Btn = styled("div", {
         fontWeight: "light",
       },
       lg: {
-        py: "$2",
+        py: "$3",
         px: "$6",
-        fontSize: "$3",
+        fontSize: "$4",
         fontWeight: "light",
       },
     },
@@ -39,8 +37,15 @@ const Btn = styled("div", {
 const GradientWrapper = styled("button", {
   outline: "none",
   border: "none",
-  br: 4,
   p: 2,
+  "&:active": {
+    transform: "scale(0.98)",
+    transformOrigin: "center center",
+    [`& ${Btn}`]: {
+      transform: "scale(0.98)",
+      transformOrigin: "center center",
+    },
+  },
   variants: {
     gradient: {
       1: {
@@ -56,9 +61,30 @@ const GradientWrapper = styled("button", {
         bg: "$gradient4",
       },
     },
+    br: {
+      sm: {
+        br: "$2",
+        [`& ${Btn}`]: {
+          br: "$2",
+        },
+      },
+      md: {
+        br: "$3",
+        [`& ${Btn}`]: {
+          br: "$3",
+        },
+      },
+      lg: {
+        br: "$4",
+        [`& ${Btn}`]: {
+          br: "$4",
+        },
+      },
+    },
   },
   defaultVariants: {
     gradient: 1,
+    br: "sm",
   },
 });
 
@@ -66,7 +92,11 @@ type GradientWrapperProps = React.ComponentProps<typeof GradientWrapper>;
 const GradientBtn = ({
   children,
   ...props
-}: { children: ReactNode } & GradientWrapperProps) => {
+}: {
+  children: ReactNode;
+  as?: React.ElementType;
+  href?: string;
+} & GradientWrapperProps) => {
   return (
     <GradientWrapper {...props}>
       <Btn
