@@ -24,4 +24,4 @@ the individual mentioned above (unless otherwise stated) and as such CANNOT be
 copied, modified, sublicensed or redistributed without permission from the
 author.**
 
-> PS: Adpted from [Olaolu's readme](https://github.com/whizkydee/olaolu.dev)
+> PS: Adapted from [Olaolu's readme](https://github.com/whizkydee/olaolu.dev)
