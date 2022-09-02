@@ -24,17 +24,25 @@ interface MDXShowcase {
 const blogStyles = css({
   pb: "$9",
   "& p": {
-    lineHeight: 1.4,
+    lineHeight: "28px",
     fontSize: "$mid",
     mb: "$4",
     mt: "$2",
     maxWidth: 1080,
     mx: "auto",
+    "@md": {
+      lineHeight: "32px",
+      fontSize: "5",
+    },
   },
   "& h1,h2,h3": {
-    my: "$5",
+    mt: "$5",
+    mb: "$2",
     maxWidth: 1080,
     mx: "auto",
+    "@md": {
+      my: "$6",
+    },
   },
   a: {
     textDecoration: "underline",
@@ -101,7 +109,15 @@ const Showcase = ({ showcase }: { showcase: MDXShowcase }) => {
         </Text>
         <MDXRemote
           {...showcase.source}
-          components={{ Box, GradientBtn, Multitab, Image, TechStacks,Caption,ImageSlider }}
+          components={{
+            Box,
+            GradientBtn,
+            Multitab,
+            Image,
+            TechStacks,
+            Caption,
+            ImageSlider,
+          }}
         />
       </Container>
     </Box>
