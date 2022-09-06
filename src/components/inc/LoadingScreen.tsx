@@ -1,11 +1,9 @@
-import Image from "next/image";
 import React from "react";
-import { Box, Text, Flex } from "../base";
+import { Flex } from "../base";
 import { motion } from "framer-motion";
-import { keyframes } from "@stitchesConfig";
-import TypeText from "./TypeText";
 import { Logo } from "@components/icons";
-const wiggle = keyframes({});
+
+const ANIMATION_DURATION = 1.5;
 const LoadingScreen = () => {
   return (
     <Flex
@@ -23,7 +21,7 @@ const LoadingScreen = () => {
       <motion.div
         initial={{ opacity: 0.3, filter: "blur(15px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
-        transition={{ duration: 2 }}
+        transition={{ duration: ANIMATION_DURATION }}
         layoutId="logo"
       >
         <Logo style={{ transform: "scale(1.8)" }} />

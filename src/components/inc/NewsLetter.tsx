@@ -1,6 +1,7 @@
 import React from "react";
 import { styled, css } from "@stitchesConfig";
-import { Box, Container, Flex, GradientBtn, Text, Divider } from "../base";
+import { Box, Container, Flex, GradientBtn, Text } from "../base";
+import { motion } from "framer-motion";
 
 const srOnly = css({
   position: "absolute",
@@ -27,6 +28,10 @@ const NewsLetter = () => {
             maxWidth: 640,
             mx: "auto",
           }}
+          as={motion.div}
+          initial={{ opacity: 0, blur: 20, y: 40 }}
+          whileInView={{ opacity: 1, blur: 0, y: 0 }}
+          viewport={{ amount: 1 ,once:true}}
         >
           <Text
             as="h1"
