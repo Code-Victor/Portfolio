@@ -1,12 +1,16 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { CSS } from "@stitchesConfig";
 import { Box, Container, Text, Flex } from "../base";
+import { variants } from "@utils";
+
 type sectionProps = {
   title: string;
   children: React.ReactNode;
   css?: CSS;
   id?: string;
   centered?: boolean;
+  ref?: any;
 };
 const Section = ({
   title,
@@ -17,15 +21,23 @@ const Section = ({
 }: sectionProps) => {
   return (
     <Box
+      as="section"
       css={{ pt: "$4", "@md": { pt: "$6" }, ...css }}
       id={id ? id : undefined}
     >
       <Container>
         <Flex
+          variants={variants}
+          custom={0}
+          initial="hidden-reverse"
+          whileInView="visible"
+          viewport={{ amount: 1, once: true }}
+          transition={{ delay: 0.7 }}
+          as={motion.div}
           className="tHolder"
           align="center"
           gap={2}
-          css={{ pt: "$4", "@md": { pt: "$5", mb: "$5" }, mb: "$3" }}
+          css={{ pt: "$4", "@md": { pt: "$9", mb: "$6" }, mb: "$4" }}
         >
           {centered && (
             <Box

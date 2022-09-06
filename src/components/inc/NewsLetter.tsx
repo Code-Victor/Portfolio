@@ -1,6 +1,7 @@
 import React from "react";
 import { styled, css } from "@stitchesConfig";
-import { Box, Container, Flex, GradientBtn, Text, Divider } from "../base";
+import { Box, Container, Flex, GradientBtn, Text } from "../base";
+import { motion } from "framer-motion";
 
 const srOnly = css({
   position: "absolute",
@@ -18,6 +19,23 @@ const NewsLetter = () => {
     <Box css={{ py: "$9", bg: "$backgroundSecondary" }}>
       <Container>
         <Flex
+          as={motion.div}
+          initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ amount: 1, once: true }}
+          transition={{
+            delay: 0.5,
+            default: 1.5,
+            opacity: {
+              duration: 0.4,
+            },
+            y: {
+              duration: 0.8,
+            },
+            filter: {
+              duration: 1.5,
+            },
+          }}
           direction="column"
           gap={4}
           css={{

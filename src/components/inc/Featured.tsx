@@ -1,17 +1,20 @@
+import React, { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
-import React, { useEffect, useState } from "react";
-import { Section } from ".";
-import config from "@config";
-import { Flex, Grid, Box, Text, GradientBtn, Divider } from "../base";
-import { useLg, useMd } from "@hooks/useMediaQuery";
-import { ChevronRight, Github, LinkIcon } from "../icons";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useLg, useMd } from "@hooks/useMediaQuery";
+import config from "@config";
+import { ChevronRight, Github, LinkIcon } from "../icons";
+import { Flex, Grid, Box, Text, GradientBtn, Divider } from "../base";
+import { Section } from ".";
+import { variants } from "@utils";
 
 const { featuredProjects } = config;
 const Featured = ({ main = false }: { main?: boolean }) => {
   const [cardNo, setCardNo] = useState(main ? 6 : 3);
   const isMd = useMd();
   const isLg = useLg();
+  const sectionRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (!main) {
       if (isLg) {
@@ -41,9 +44,13 @@ const Featured = ({ main = false }: { main?: boolean }) => {
       <Grid
         gapY={8}
         gapX={4}
+        ref={sectionRef}
         columns={{ "@initial": "1", "@md": "2", "@lg": "3" }}
         css={{
           mt: "$7",
+          "@md": {
+            mt: "$9",
+          },
           "&:": {
             display: "none",
             bg: "white",
@@ -51,25 +58,37 @@ const Featured = ({ main = false }: { main?: boolean }) => {
         }}
       >
         {featuredProjects.slice(0, cardNo).map((project, i) => {
-          return <Card key={i} {...project} />;
+          return <Card key={i} {...{ ...project, i, main, ref: sectionRef }} />;
         })}
       </Grid>
       {!main && (
-        <Link href="/projects" passHref>
-          <Text as="a">
-            <GradientBtn
-              gradient={3}
-              css={{
-                display: "block",
-                width: "fit-content",
-                mx: "auto",
-                mt: "$5",
-              }}
-            >
-              {"See More Projects"}
-            </GradientBtn>
-          </Text>
-        </Link>
+        <Box
+          variants={variants}
+          initial="hidden-reverse"
+          whileInView="visible"
+          viewport={{ amount: 1, once: true }}
+          transition={{ delay: 0.7 }}
+          as={motion.div}
+        >
+          <Link href="/projects" passHref>
+            <Text as="a">
+              <GradientBtn
+                gradient={3}
+                css={{
+                  display: "block",
+                  width: "fit-content",
+                  mx: "auto",
+                  mt: "$6",
+                  "@md": {
+                    mt: "$8",
+                  },
+                }}
+              >
+                {"See More Projects"}
+              </GradientBtn>
+            </Text>
+          </Link>
+        </Box>
       )}
     </Section>
   );
@@ -84,17 +103,26 @@ interface CardProps {
   descriptionHtml: string;
   techs: string[];
 }
-const Card = ({
-  title,
-  descriptionHtml,
-  cover,
-  showCase,
-  techs,
-  github,
-  external,
-}: CardProps) => {
+interface animationProps {
+  ref: React.MutableRefObject<HTMLDivElement | null | undefined>;
+  main: boolean;
+  i: number;
+}
+const Card = ({ ref, main, i, ...cardProps }: CardProps & animationProps) => {
+  const { title, descriptionHtml, cover, showCase, techs, github, external } =
+    cardProps;
+  const animateProps = !main
+    ? {
+        as: motion.div,
+        initial: "hiddenLg",
+        whileInView: "visibleCustomNoD",
+        custom: i + 0.5,
+        viewport: { root: ref, amount: 0.8, once: true },
+        variants,
+      }
+    : {};
   return (
-    <Flex direction="column" gap="2">
+    <Flex direction="column" gap="2" {...animateProps}>
       <Image
         src={cover || "/images/project.png"}
         alt={title}

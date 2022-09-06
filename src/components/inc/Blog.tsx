@@ -1,15 +1,17 @@
 import React from "react";
-import useSWR from "swr";
 import Image from "next/image";
 import Link from "next/link";
-import { fetcher, url,returns } from "@utils";
-import { Section } from ".";
+import useSWR from "swr";
+import { motion } from "framer-motion";
+import { fetcher, url, returns } from "@utils";
 import { styled } from "@stitchesConfig";
-import { Box, Container, Flex, GradientBtn, Text } from "../base";
+import { variants } from "@utils";
+import { Section } from ".";
+import { Box, Flex, GradientBtn, Text } from "../base";
 
 const Blog = () => {
   const { data, error } = useSWR(url, fetcher<returns>);
-  console.table({data})
+  console.table({ data });
   const loading = !data && !error;
   const items = data?.items;
 
@@ -24,10 +26,9 @@ const Blog = () => {
       css={{
         bg: "$backgroundSecondary",
         pb: "$5",
-        '@md':{
+        "@md": {
           pb: "$8",
-          
-        }
+        },
       }}
       id="articles"
     >
@@ -39,7 +40,17 @@ const Blog = () => {
           day: "numeric",
         });
         return (
-          <Box key={id} css={{ maxWidth: "1240px", mx: "auto",mt:"$7" }}>
+          <Box
+            key={id}
+            variants={variants}
+            custom={0}
+            initial="hidden-reverse"
+            whileInView="visible"
+            viewport={{ amount: 1, once: true }}
+            transition={{ delay: 0.7 }}
+            as={motion.div}
+            css={{ maxWidth: "1240px", mx: "auto", mt: "$9" }}
+          >
             <Flex direction={{ "@initial": "column", "@md": "row" }}>
               <Box
                 css={{ py: "$4", spacey: "$3", order: 2, "@md": { order: 1 } }}
@@ -92,9 +103,21 @@ const Blog = () => {
           </Box>
         );
       })}
-      <Flex justify={"center"} css={{ mt: "$4",'@md':{mt:'$6'} }}>
-        <Link href={"https://medium.com/@oluwaborihamzat"} target="_blank">
-          <GradientBtn>Follow Me</GradientBtn>
+      <Flex
+        variants={variants}
+        custom={0}
+        initial="hidden-reverse"
+        whileInView="visible"
+        viewport={{ amount: 1, once: true }}
+        transition={{ delay: 0.7 }}
+        as={motion.div}
+        justify={"center"}
+        css={{ mt: "$5", "@md": { mt: "$8" } }}
+      >
+        <Link href={"https://medium.com/@oluwaborihamzat"} passHref>
+          <a target="_blank">
+            <GradientBtn>Follow Me</GradientBtn>
+          </a>
         </Link>
       </Flex>
     </Section>
