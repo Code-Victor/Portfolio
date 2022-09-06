@@ -19,6 +19,23 @@ const NewsLetter = () => {
     <Box css={{ py: "$9", bg: "$backgroundSecondary" }}>
       <Container>
         <Flex
+          as={motion.div}
+          initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ amount: 1, once: true }}
+          transition={{
+            delay: 0.5,
+            default: 1.5,
+            opacity: {
+              duration: 0.4,
+            },
+            y: {
+              duration: 0.8,
+            },
+            filter: {
+              duration: 1.5,
+            },
+          }}
           direction="column"
           gap={4}
           css={{
@@ -28,10 +45,6 @@ const NewsLetter = () => {
             maxWidth: 640,
             mx: "auto",
           }}
-          as={motion.div}
-          initial={{ opacity: 0, blur: 20, y: 40 }}
-          whileInView={{ opacity: 1, blur: 0, y: 0 }}
-          viewport={{ amount: 1 ,once:true}}
         >
           <Text
             as="h1"
