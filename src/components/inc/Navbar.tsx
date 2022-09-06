@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Box, Flex, Container, NiceLink } from "../base";
+import { Box, Flex, Container, NiceLink, FloatingActionButton } from "../base";
 import { Sun, Moon, Logo } from "../icons";
 import { useTheme } from "next-themes";
 import config from "@config";
 import { motion } from "framer-motion";
 import { LoaderContext } from "@context";
+import { variants } from "@utils";
 
 const { navLinks } = config;
 
@@ -41,15 +42,14 @@ const Navbar = () => {
     >
       <Container>
         <Flex justify={"between"} align={"center"} css={{ height: "70px" }}>
-          {
-            <motion.div
-              key={`${loading}`}
-              layoutId={loading ? "nav" : "logo"}
-              transition={{ layout: { duration: 0.6 } }}
-            >
-              <Logo />
-            </motion.div>
-          }
+          <motion.div
+            key={`${loading}`}
+            layoutId={loading ? "nav" : "logo"}
+            transition={{ layout: { duration: 0.8 } }}
+          >
+            <Logo />
+          </motion.div>
+
           <Flex
             gap={5}
             align="center"
@@ -60,8 +60,13 @@ const Navbar = () => {
               },
             }}
           >
-            {navLinks.map(({ name, url, color }) => (
+            {navLinks.map(({ name, url, color }, i) => (
               <NiceLink
+                as={motion.a}
+                variants={variants}
+                initial="hidden"
+                animate="visibleCustom"
+                custom={i}
                 key={name}
                 href={url}
                 css={
@@ -75,7 +80,61 @@ const Navbar = () => {
                 {name}
               </NiceLink>
             ))}
-            <button
+            <FloatingActionButton
+              variants={variants}
+              initial="hidden"
+              animate="visibleCustom"
+              custom={4.5}
+              as={motion.button}
+              aria-label={`${
+                theme === "dark" ? "set theme to light" : "set theme to dark"
+              }`}
+              css={{
+                overflow: "hidden",
+                position: "relative",
+                inset: 0,
+                br: "$2",
+                padding: 2,
+                "&>*:first-child": {
+                  size: 35,
+                  br: "$2",
+                  bg: "$tab",
+                  color: "$textPrimary",
+                },
+              }}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              <Box css={{ position: "relative" }}>
+                <Box
+                  css={{
+                    position: "absolute",
+                    inset: 0,
+                    transformOrigin: "50% 100px",
+                    transform: `${
+                      theme === "dark" ? "rotate(0deg)" : "rotate(90deg)"
+                    }`,
+                    transition: "all 0.5s ease-in-out",
+                  }}
+                >
+                  <Sun style={{ width: "60%", height: "100%" }} />
+                </Box>
+                <Box
+                  id={theme === "dark" ? "light" : "dark"}
+                  css={{
+                    position: "absolute",
+                    inset: 0,
+                    transformOrigin: "50% 100px",
+                    transform: `${
+                      theme === "dark" ? "rotate(-90deg)" : "rotate(0deg)"
+                    }`,
+                    transition: "all 0.5s ease-in-out",
+                  }}
+                >
+                  <Moon style={{ width: "60%", height: "100%" }} />
+                </Box>
+              </Box>
+            </FloatingActionButton>
+            {/* <motion.button
               aria-label={`${
                 theme === "dark" ? "set theme to light" : "set theme to dark"
               }`}
@@ -87,7 +146,7 @@ const Navbar = () => {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               {theme === "dark" ? <Sun /> : <Moon />}
-            </button>
+            </motion.button> */}
           </Flex>
         </Flex>
       </Container>
