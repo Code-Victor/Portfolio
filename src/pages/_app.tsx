@@ -7,11 +7,12 @@ import React, { useRef, Suspense } from "react";
 import useToggle from "@hooks/useToogle";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import "../styles/highlight.css"
+import "../styles/highlight.css";
 
 const MobileNav = dynamic(() => import("@components/inc/MobileNav"));
 const Footer = dynamic(() => import("@components/inc/Footer"));
 const ThemeButton = dynamic(() => import("@components/inc/ThemeButton"));
+const LOADING_DURATION = 3500;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const render = useRef(true);
@@ -21,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (render.current) {
       const timer = setTimeout(() => {
         setLoading(false);
-      }, 5000);
+      }, LOADING_DURATION);
       return () => clearTimeout(timer);
     }
     render.current = false;
