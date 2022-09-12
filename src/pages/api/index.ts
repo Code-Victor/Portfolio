@@ -5,7 +5,7 @@ import fs from "fs";
 import { sync } from "glob";
 import matter from "gray-matter";
 
-const SC_PATH = path.join(process.cwd(), "src", "static", "showcase");
+const SC_PATH = path.join(process.cwd(), "src", "static");
 
 export const getSCSlug = (): string[] => {
   const paths = sync("*.mdx", { cwd: SC_PATH });
