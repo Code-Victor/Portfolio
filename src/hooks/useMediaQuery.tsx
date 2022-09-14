@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useMediaQuery(query:string):boolean {
+export default function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
@@ -17,8 +17,9 @@ export default function useMediaQuery(query:string):boolean {
     media.addEventListener("change", listener);
     // cleanup to prevent memory leak
     return () => {
-      media.removeEventListener("resize", listener)
-      media.removeEventListener("change", listener)};
+      media.removeEventListener("resize", listener);
+      media.removeEventListener("change", listener);
+    };
   }, [matches, query]);
 
   return matches;

@@ -47,26 +47,50 @@ const DDoM = () => {
           <Quotes style={{ position: "absolute", top: 0, opacity: 0.3 }} />
         </motion.div>
         <Text
-          as="p"
+          as={"p"}
           fontSize={{ "@initial": 7, "@md": 9 }}
           textAlign="center"
           css={{ my: "$4", fontFamily: "$greatVibes" }}
         >
-          {data?.content.split("").map((letter, i) => {
-            const text = letter === " " ? "&nbsp;" : letter;
+          {data?.content.split(" ").map((word, i) => {
+            const renderedLetters = word.split("").map((letter, j) => {
+              return (
+                <Text
+                  css={{
+                    fontFamily: "$greatVibes",
+                    display: "inline-block",
+                  }}
+                  fontSize={{ "@initial": 7, "@md": 9 }}
+                  as={motion.span}
+                  variants={variants}
+                  initial="hidden-reverse"
+                  custom={i}
+                  whileInView="visibleText"
+                  viewport={{ amount: 1, once: true }}
+                  key={`${i}-${j}-${letter}-${word}`}
+                >
+                  {letter}
+                </Text>
+              );
+            });
             return (
-              <Text
-                css={{ fontFamily: "$greatVibes", display: "inline-block" }}
-                fontSize={{ "@initial": 7, "@md": 9 }}
-                as={motion.span}
-                variants={variants}
-                initial="hidden-reverse"
-                custom={i}
-                whileInView="visibleText"
-                viewport={{ amount: 1, once: true }}
-                key={i}
-                dangerouslySetInnerHTML={{ __html: text }}
-              ></Text>
+              <>
+                <Text
+                  key={`${i}-${word}`}
+                  css={{ whiteSpace: "nowrap" }}
+                  data-word={word}
+                >
+                  {renderedLetters}
+                </Text>
+                {i !== data?.content.split(" ").length - 1 && (
+                  <Text
+                    css={{ display: "inline-block" }}
+                    fontSize={{ "@initial": 7, "@md": 9 }}
+                  >
+                    &nbsp;
+                  </Text>
+                )}
+              </>
             );
           })}
         </Text>

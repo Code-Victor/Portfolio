@@ -47,9 +47,9 @@ const Featured = ({ main = false }: { main?: boolean }) => {
         ref={sectionRef}
         columns={{ "@initial": "1", "@md": "2", "@lg": "3" }}
         css={{
-          mt: "$7",
+          mt: "$3",
           "@md": {
-            mt: "$9",
+            mt: "$5",
           },
           "&:": {
             display: "none",
@@ -120,7 +120,14 @@ const Card = ({ ref, main, i, ...cardProps }: CardProps & animationProps) => {
         viewport: { root: ref, amount: 0.8, once: true },
         variants,
       }
-    : {};
+    : {
+        as: motion.div,
+        initial: "hiddenMd",
+        whileInView: "visibleCustomNoD",
+        custom: i + 0.5,
+        viewport: { amount: 0.5, once: true },
+        variants,
+      };
   return (
     <Flex direction="column" gap="2" {...animateProps}>
       <Image

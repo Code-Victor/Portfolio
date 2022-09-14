@@ -1,34 +1,19 @@
-import React, { useEffect, useRef } from "react";
-import { Box, Container, Flex, Text, Grid, NiceLink } from "../base";
+import React, { MutableRefObject, useRef } from "react";
+import { Box, Flex, Text, Grid } from "../base";
+import { NiceLinkCSS } from "@components/base/NiceLink";
 import config from "@config";
 import { styled } from "@stitchesConfig";
 const { journey } = config;
-import { useMd } from "@hooks/useMediaQuery";
 import Section from "./Section";
+import { motion } from "framer-motion";
+import { variants } from "@utils";
+
 const Journey = () => {
-  const isMd = useMd();
-  const journeyGridRef = useRef<HTMLDivElement>(null);
-  const mobileJourneyGridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const aTags = journeyGridRef.current?.getElementsByTagName("a");
-    const mobileATags = mobileJourneyGridRef.current?.getElementsByTagName("a");
-    if (aTags) {
-      Array.from(aTags).forEach((element) => {
-        element.classList.add(NiceLink.toString().replace(".", ""));
-      });
-    }
-
-    if (mobileATags) {
-      Array.from(mobileATags).forEach((element) => {
-        element.classList.add(NiceLink.toString().replace(".", ""));
-      });
-    }
-  });
   return (
     <Section
       title={"My Journey"}
       css={{ bg: "$backgroundSecondary", "& .tHolder": { pb: "$2" } }}
+      animation={"all"}
     >
       <Text
         as="p"
@@ -40,20 +25,25 @@ const Journey = () => {
         passion has constantly fueled me through this journey even in times of
         uncertainties and against all odds I have continued to thrive and learn.
       </Text>
-      {isMd && (
-        <Box ref={journeyGridRef} css={{}}>
-          {journey.map((item, i) => {
-            return <JourneyGrid key={i} i={i} {...item} />;
-          })}
-        </Box>
-      )}
-      {!isMd && (
-        <Box ref={mobileJourneyGridRef} css={{}}>
-          {journey.map((item, i) => {
-            return <MobileJourneyGrid key={i} i={i} {...item} />;
-          })}
-        </Box>
-      )}
+      <Box
+        css={{
+          a: NiceLinkCSS,
+        }}
+      >
+        {[
+          ...journey.map((item, i) => (
+            <MobileJourneyGrid
+              key={i}
+              i={i}
+              length={journey.length}
+              {...item}
+            />
+          )),
+          ...journey.map((item, i) => (
+            <JourneyGrid key={i} i={i} {...item} length={journey.length} />
+          )), //FIXME: WHAT THE HECK IS LAST-OF-TYPE DO?
+        ]}
+      </Box>
     </Section>
   );
 };
@@ -61,24 +51,33 @@ const Journey = () => {
 const JourneyGrid = ({
   title,
   paragraph,
+  length,
   i,
 }: {
   title: string;
   paragraph: string;
   i: number;
+  length: number;
 }) => {
   if (i % 2 === 0) {
     return (
       <Grid
+        className="desktop-journey-grid"
         css={{
           gridTemplateColumns: "1fr 100px 1fr",
-          [`&:last-of-type ${DottedLine}`]: {
-            display: "none",
+          display: "none",
+          "@md": {
+            display: "grid",
           },
         }}
         columns={"none"}
       >
-        <Box css={{}}>
+        <Box
+          as={motion.article}
+          variants={variants}
+          initial="-slideReveal-init"
+          whileInView="-slideReveal-final"
+        >
           <Text
             as="h3"
             fontSize={"5"}
@@ -99,28 +98,51 @@ const JourneyGrid = ({
         </Box>
         <Flex direction="column" align={"center"} css={{}}>
           <CountBtn count={i + 1} />
-          <DottedLine />
+          {length - 1 !== i && (
+            <DottedLine
+              as={motion.div}
+              initial="flex-init"
+              whileInView="flex-final"
+              viewport={{ once: true, amount: "all" }}
+              css={{}}
+            />
+          )}
         </Flex>
       </Grid>
     );
   }
   return (
     <Grid
-      className="jG"
+      className="desktop-journey-grid"
       columns={"none"}
       css={{
         gridTemplateColumns: "1fr 100px 1fr",
-        [`&:last-of-type ${DottedLine.toString()}`]: {
-          display: "none",
+        display: "none",
+        "@md": {
+          display: "grid",
         },
       }}
     >
       <Box />
       <Flex direction="column" align={"center"} css={{}}>
         <CountBtn count={i + 1} />
-        <DottedLine />
+        {length - 1 !== i && (
+          <DottedLine
+            as={motion.div}
+            variants={variants}
+            initial="flex-init"
+            whileInView="flex-final"
+            viewport={{ once: true, amount: 1 }}
+          />
+        )}
       </Flex>
-      <Box css={{}}>
+      <Box
+        as={motion.article}
+        variants={variants}
+        initial="slideReveal-init"
+        whileInView="slideReveal-final"
+        viewport={{ once: true, amount: 1 }}
+      >
         <Text
           as="h3"
           fontSize={"5"}
@@ -145,27 +167,45 @@ const JourneyGrid = ({
 const MobileJourneyGrid = ({
   title,
   paragraph,
+  length,
   i,
 }: {
   title: string;
   paragraph: string;
   i: number;
+  length: number;
 }) => {
   return (
     <Grid
       columns={"none"}
+      className="mobile-journey-grid"
       css={{
+        overflow: "hidden",
         gridTemplateColumns: "60px 1fr",
-        [`&:last-of-type ${DottedLine}`]: {
+        "@md": {
           display: "none",
         },
       }}
     >
       <Flex direction="column" align={"center"} css={{}}>
         <CountBtn count={i + 1} size={45} />
-        <DottedLine />
+        {length - 1 !== i && (
+          <DottedLine
+            as={motion.div}
+            variants={variants}
+            initial={["flex-init", "opacity-init"]}
+            whileInView={["flex-final", "opacity-final"]}
+            viewport={{ once: true, amount: 1 }}
+          />
+        )}
       </Flex>
-      <Box css={{}}>
+      <Box
+        as={motion.article}
+        variants={variants}
+        initial="slideReveal-init"
+        whileInView="slideReveal-final"
+        viewport={{ once: true, amount: 0.5 }}
+      >
         <Text
           as="h3"
           fontSize={"4"}
@@ -187,10 +227,22 @@ const MobileJourneyGrid = ({
     </Grid>
   );
 };
-const CountBtn = ({ count, size }: { count: number; size?: number }) => {
+const CountBtn = ({
+  count,
+  size,
+  root,
+}: {
+  count: number;
+  size?: number;
+  root?: MutableRefObject<HTMLDivElement | null>;
+}) => {
   return (
     <Box
-      as="button"
+      as={motion.button}
+      variants={variants}
+      initial="opacity-init"
+      whileInView="opacity-final"
+      viewport={{ once: true, root, amount: "all" }}
       css={{
         border: "none",
         outline: "none",
@@ -211,15 +263,4 @@ const DottedLine = styled("div", {
   transform: "translateX(50%)",
   flex: 1,
 });
-
-// () => (
-//   <Box
-//     css={{
-//       border: "2px dashed $textSecondary",
-//       width: 0,
-//       transform: "translateX(50%)",
-//       flex:1
-//     }}
-//   ></Box>
-// );
 export default Journey;

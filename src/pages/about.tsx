@@ -1,15 +1,17 @@
-import React from 'react'
-import { Experience, Intro, Journey, Tools } from '../components/inc'
+import React from "react";
+import { Experience, Intro, Journey, Tools } from "../components/inc";
 
 const about = () => {
   return (
     <>
-    <Intro/>
-    <Journey/>
-    <Experience/>
-    <Tools/>
+      <main>
+        <Intro />
+        <Journey />
+        <Experience />
+        <Tools />
+      </main>
     </>
-  )
-}
+  );
+};
 
-export default about
+export default about;

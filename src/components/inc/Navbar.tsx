@@ -13,10 +13,14 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [top, setTop] = useState(false);
   const { loading } = useContext(LoaderContext);
+  const [_, setRender] = useState(false);
 
   const topObserver = () => {
     setTop(window.scrollY > 0);
   };
+  useEffect(() => {
+    setRender(true);
+  }, []);
   useEffect(() => {
     window.addEventListener("scroll", topObserver);
 
@@ -24,6 +28,7 @@ const Navbar = () => {
       window.removeEventListener("scroll", topObserver);
     };
   });
+
   return (
     <Box
       as="nav"
@@ -69,6 +74,7 @@ const Navbar = () => {
                 custom={i}
                 key={name}
                 href={url}
+                target={url.includes("https") ? "_blank" : "_self"}
                 css={
                   color
                     ? {
@@ -85,6 +91,7 @@ const Navbar = () => {
               initial="hidden"
               animate="visibleCustom"
               custom={4.5}
+              key={`${_}`}
               as={motion.button}
               aria-label={`${
                 theme === "dark" ? "set theme to light" : "set theme to dark"
@@ -116,7 +123,9 @@ const Navbar = () => {
                     transition: "all 0.5s ease-in-out",
                   }}
                 >
-                  <Sun style={{ width: "60%", height: "100%" }} />
+                  <Sun
+                    style={{ width: "60%", height: "100%", color: "white" }}
+                  />
                 </Box>
                 <Box
                   id={theme === "dark" ? "light" : "dark"}
@@ -130,7 +139,9 @@ const Navbar = () => {
                     transition: "all 0.5s ease-in-out",
                   }}
                 >
-                  <Moon style={{ width: "60%", height: "100%" }} />
+                  <Moon
+                    style={{ width: "60%", height: "100%", color: "black" }}
+                  />
                 </Box>
               </Box>
             </FloatingActionButton>
