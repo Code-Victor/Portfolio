@@ -60,7 +60,7 @@ const config = {
   experience: [
     {
       position: "Frontend Developer ",
-      company: "Halphatek",
+      company: "InitZero",
       role: [
         "I helped clients to build and deploy User Interfaces for MVP(Minimum Viable Product) for startups and business.",
         "I helped to maintain codebases of already started projects.",
@@ -97,7 +97,7 @@ const config = {
     },
     {
       name: "Resume",
-      url: "/#",
+      url: "https://drive.google.com/file/d/1nVBunYrITGUyWCOLdlauk9ziJezhUQjB/view?usp=sharing",
       color: "$gradient2",
     },
   ],
