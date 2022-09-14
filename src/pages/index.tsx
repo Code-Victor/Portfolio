@@ -18,18 +18,20 @@ const Home: NextPage<{ fallback: returns }> = ({ fallback }) => {
   const Loader = React.useContext(LoaderContext);
   return (
     <SWRConfig value={{ fallback }}>
-      <Hero />
-      {Loader?.loading && <LoadingScreen />}
-      <Blog />
-      <Suspense fallback={<div />}>
-        <Featured />
-      </Suspense>
-      <Suspense fallback={<div />}>
-        <DDoM />
-      </Suspense>
-      <Suspense fallback={<div />}>
-        <NewsLetter />
-      </Suspense>
+      <main>
+        <Hero />
+        {Loader?.loading && <LoadingScreen />}
+        <Blog />
+        <Suspense fallback={<div />}>
+          <Featured />
+        </Suspense>
+        <Suspense fallback={<div />}>
+          <DDoM />
+        </Suspense>
+        <Suspense fallback={<div />}>
+          <NewsLetter />
+        </Suspense>
+      </main>
     </SWRConfig>
   );
 };
