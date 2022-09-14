@@ -13,25 +13,21 @@ const Projects = () => {
         bg: "$backgroundSecondary",
         "& h3:first-of-type": { ta: "center" },
       }}
+      animation="all"
     >
       <Grid
         columns={{ "@initial": 1, "@md": 2 }}
         css={{ mx: "auto", mb: "$8" }}
+        gap="5"
         justify="center"
       >
         {projects.map((project, i) => {
-          return (
-            <Card
-              key={i}
-             {...project}
-            />
-          );
+          return <Card key={i} {...project} />;
         })}
       </Grid>
     </Section>
   );
 };
-
 
 interface CardProps {
   title: string;
