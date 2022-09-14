@@ -32,6 +32,7 @@ const Intro = () => {
               flex: 1,
               maxWidth: 350,
               maxHeight: 350,
+              size: "75vw",
               minWidth: 300,
               alignSelf: "center",
               "@md": {
@@ -75,7 +76,7 @@ const Intro = () => {
                 color="#6950c2"
                 show={true}
               >
-                Code Victor
+                CodeVictor
               </RoughNotation>
               , a frontend developer based in Nigera I&apos;m in love building
               simple buy yet modern user interfaces without living out
