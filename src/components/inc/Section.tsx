@@ -11,6 +11,7 @@ type sectionProps = {
   id?: string;
   centered?: boolean;
   ref?: any;
+  animation?: "header" | "all";
 };
 const Section = ({
   title,
@@ -18,26 +19,31 @@ const Section = ({
   css,
   id,
   centered = false,
+  animation = "header",
 }: sectionProps) => {
+  const header = animation === "header";
+  const movement = {
+    variants: variants,
+    custom: 0,
+    initial: "hidden-reverse",
+    whileInView: "visible",
+    viewport: { amount: header ? "all" : "some", once: true },
+    transition: { delay: 0.7 },
+    as: motion.div,
+  };
   return (
     <Box
       as="section"
       css={{ pt: "$4", "@md": { pt: "$6" }, ...css }}
       id={id ? id : undefined}
     >
-      <Container>
+      <Container {...(animation === "all" && movement)}>
         <Flex
-          variants={variants}
-          custom={0}
-          initial="hidden-reverse"
-          whileInView="visible"
-          viewport={{ amount: 1, once: true }}
-          transition={{ delay: 0.7 }}
-          as={motion.div}
           className="tHolder"
           align="center"
           gap={2}
           css={{ pt: "$4", "@md": { pt: "$9", mb: "$6" }, mb: "$4" }}
+          {...(animation === "header" && movement)}
         >
           {centered && (
             <Box
