@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -8,12 +8,6 @@ import { keyframes } from "@stitchesConfig";
 import { variants } from "@utils";
 import { useMd } from "@hooks/useMediaQuery";
 
-// interface LinkType {
-//   label: string;
-//   href: string;
-//   icon: React.ReactNode;
-//   variant: 1 | 2 | 3 | 4;
-// }
 type variant = 1 | 2 | 3 | 4;
 const Links = [
   {
@@ -44,9 +38,11 @@ const Links = [
 
 const Hero = () => {
   const isMd = useMd();
-  const WAIT = isMd ? 5 : 2;
-  console.log({ isMd, WAIT });
+  const [_, setRender] = useState(false);
   const animate = useCallback((i: number) => (isMd ? 5 : 2) + i, [isMd]);
+  useEffect(() => {
+    setRender(true);
+  }, []);
   return (
     <Box
       css={{
@@ -55,7 +51,7 @@ const Hero = () => {
         pt: 80,
         pb: 120,
         position: "relative",
-        minHeight:'100vh',
+        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -63,17 +59,9 @@ const Hero = () => {
           pt: 300,
           pb: 200,
         },
-        // "@lg": {
-        //   pt: 350,
-        //   pb: 250,
-        // },
-        // "@xl": {
-        //   pt: 450,
-        //   pb: 350,
-        // },
       }}
     >
-      <Container >
+      <Container>
         <Grid columns={{ "@initial": 1, "@md": 5 }}>
           <Box
             css={{
@@ -98,7 +86,7 @@ const Hero = () => {
               animate="visibleCustom"
               custom={animate(1)}
               fontSize={"mid"}
-              key={`h1-1-${isMd}`}
+              key={`h1-1-${_}`}
               textAlign={{ "@initial": "center", "@md": "left" }}
             >
               Hey, I&apos;m
@@ -107,7 +95,7 @@ const Hero = () => {
               as={motion.h1}
               fontSize={{ "@initial": 8, "@sm": 9, "@md": 10 }}
               fontFamily="poppins"
-              key={`h1-2-${isMd}`}
+              key={`h1-2-${_}`}
               variants={variants}
               initial="hidden-reverse"
               animate="visibleCustom"
@@ -124,7 +112,7 @@ const Hero = () => {
             </Text>
             <Text
               as={motion.p}
-              key={`p-1-${isMd}`}
+              key={`p-1-${_}`}
               variants={variants}
               initial="hidden-reverse"
               animate="visibleCustom"
@@ -144,7 +132,7 @@ const Hero = () => {
             initial="hidden-reverse"
             animate="visibleCustom"
             custom={animate(3)}
-            key={`img-1-${isMd}`}
+            key={`img-1-${_}`}
             css={{
               as: "center",
               justifySelf: "center",
@@ -176,10 +164,10 @@ const Hero = () => {
                 <Link href={link.href} key={i} passHref>
                   <motion.a
                     variants={variants}
-                    key={`link-${i}-${isMd}`}
-                    initial="hidden-reverse"
                     animate="visibleCustom"
+                    initial="hidden-reverse"
                     custom={animate(7 + i)}
+                    key={`link-${i}-${_}`}
                     target="_blank"
                   >
                     <GradientBtn gradient={link.variant as variant}>
@@ -196,21 +184,28 @@ const Hero = () => {
         </Grid>
       </Container>
       <Box
-        as="a"
-        href="/#experience"
+        as={motion.a}
+        href="/#articles"
+        variants={variants}
+        initial="hidden-reverse"
+        animate="visibleCustom"
+        custom={animate(13)}
         css={{
           width: 50,
-
+          height: 200,
           "& svg": {
             animation: `${Bounce} 2200ms infinite`,
+            width: 20,
+            height: 100,
+            opacity: 0.8,
           },
           position: "absolute",
-          right: "15%",
-          bottom: "15%",
+          right: "23%",
+          bottom: "22%",
           display: "grid",
           placeItems: "center",
         }}
-        aria-label={"go to main section"}
+        aria-label={"go to main sections"}
       >
         <Arrow style={{}} />
       </Box>
