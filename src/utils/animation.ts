@@ -30,8 +30,16 @@ const variants: Variants = {
     opacity: 1,
     y: 0,
   },
-
+  "-slideReveal-init": { opacity: 0, x: -100 },
+  "-slideReveal-final": { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  "slideReveal-init": { opacity: 0, x: 100 },
+  "slideReveal-final": { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  "flex-init": { flex: 0 },
+  "flex-final": { flex: 1, transition: { duration: 1.2 } },
+  "opacity-init": { opacity: 0 },
+  "opacity-final": { opacity: 1, transition: { duration: 1.2 } },
   hidden: { opacity: 0, y: -20 },
+  hiddenMd: { opacity: 0, y: -50 },
   hiddenLg: { opacity: 0, y: -100 },
   "hidden-reverse": { opacity: 0, y: 25 },
 };
