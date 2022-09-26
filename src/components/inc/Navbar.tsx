@@ -35,7 +35,7 @@ const Navbar = () => {
       css={{
         bg: "transparent",
         color: "$textPrimary",
-        backdropFilter: "blur(10px)",
+        backdropFilter: "blur(20px)",
         position: "fixed",
         top: 0,
         left: 0,
@@ -101,10 +101,10 @@ const Navbar = () => {
                 position: "relative",
                 inset: 0,
                 br: "$2",
-                padding: 2,
+                padding: 2.5,
                 "&>*:first-child": {
                   size: 35,
-                  br: "$2",
+                  br: "calc($2 - 2.5px)",
                   bg: "$tab",
                   color: "$textPrimary",
                 },
