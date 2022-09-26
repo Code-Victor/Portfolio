@@ -14,14 +14,24 @@ interface returns {
   authorSlug: string;
   length: number;
 }
+const placeholder: returns = {
+  _id: "345",
+  content:
+    " Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero soluta eaque perspiciatis ullam in vero, voluptate expedita a laborum corporis?",
+  author: "placeholder",
+  authorSlug: "plc",
+  length: 20,
+  tags: ["hello"],
+};
 const url = "https://api.quotable.io/random?maxLength=50?minLength=20 ";
 const DDoM = () => {
   const { data, error } = useSWR(url, fetcher<returns>);
+  const isLoading = !data && !error;
+  let displayData = data;
   if (!data && !error) {
-    return <Text>Loading...</Text>;
   }
   if (error) {
-    return <Text>Failed to load</Text>;
+    displayData = placeholder;
   }
   return (
     <Section
@@ -52,7 +62,7 @@ const DDoM = () => {
           textAlign="center"
           css={{ my: "$4", fontFamily: "$greatVibes" }}
         >
-          {data?.content.split(" ").map((word, i) => {
+          {displayData?.content.split(" ").map((word, i) => {
             const renderedLetters = word.split("").map((letter, j) => {
               return (
                 <Text
@@ -82,14 +92,15 @@ const DDoM = () => {
                 >
                   {renderedLetters}
                 </Text>
-                {i !== data?.content.split(" ").length - 1 && (
-                  <Text
-                    css={{ display: "inline-block" }}
-                    fontSize={{ "@initial": 7, "@md": 9 }}
-                  >
-                    &nbsp;
-                  </Text>
-                )}
+                {displayData &&
+                  i !== displayData.content.split(" ").length - 1 && (
+                    <Text
+                      css={{ display: "inline-block" }}
+                      fontSize={{ "@initial": 7, "@md": 9 }}
+                    >
+                      &nbsp;
+                    </Text>
+                  )}
               </>
             );
           })}
@@ -105,7 +116,7 @@ const DDoM = () => {
           as={motion.h3}
           textAlign="center"
         >
-          {data?.author}
+          {displayData?.author}
         </Text>
       </Box>
     </Section>
