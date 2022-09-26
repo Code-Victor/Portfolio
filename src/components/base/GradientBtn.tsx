@@ -35,9 +35,15 @@ const Btn = styled("div", {
   },
 });
 const GradientWrapper = styled("button", {
+  $$borderRadius: "$radii$2",
+  $$padding: "3px",
+  br: "calc($$borderRadius + $$padding)",
   outline: "none",
   border: "none",
-  p: 2,
+  p: " $$padding",
+  [`& ${Btn}`]: {
+    br: "$$borderRadius",
+  },
   "&:active": {
     transform: "scale(0.98)",
     transformOrigin: "center center",
@@ -63,22 +69,13 @@ const GradientWrapper = styled("button", {
     },
     br: {
       sm: {
-        br: "$2",
-        [`& ${Btn}`]: {
-          br: "$2",
-        },
+        $$borderRadius: "$radii$2",
       },
       md: {
-        br: "$3",
-        [`& ${Btn}`]: {
-          br: "$3",
-        },
+        $$borderRadius: "$radii$3",
       },
       lg: {
-        br: "$4",
-        [`& ${Btn}`]: {
-          br: "$4",
-        },
+        $$borderRadius: "$radii$4",
       },
     },
   },
