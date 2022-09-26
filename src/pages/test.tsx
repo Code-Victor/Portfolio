@@ -1,6 +1,6 @@
 import { Box, Container } from "@components/base";
 import { ImageSlider, Multitab, TechStacks } from "@components/inc";
-
+import {theme} from '@stitchesConfig'
 import React, { useEffect, useCallback } from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
@@ -24,6 +24,8 @@ const Images = [
   },
 ];
 const Test = () => {
+  console.log({theme})
+  console.log({colors:theme.colors})
   const settings = {
     dots: true,
     infinite: true,
