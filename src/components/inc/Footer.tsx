@@ -36,7 +36,7 @@ const Footer = () => {
         <Text
           textAlign={"center"}
           fontSize={3}
-          css={{ color: "$textSecondary", display: "block", my: "$3" ,}}
+          css={{ color: "$textSecondary", display: "block", py: "$3" ,}}
         >
           Built with ♥ and{" "}
           <NiceLink href="https://nextjs.org/" target="_blank">
