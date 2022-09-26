@@ -77,6 +77,7 @@ const JourneyGrid = ({
           variants={variants}
           initial="-slideReveal-init"
           whileInView="-slideReveal-final"
+          viewport={{ once: true, amount:0.4 }}
         >
           <Text
             as="h3"
@@ -141,7 +142,7 @@ const JourneyGrid = ({
         variants={variants}
         initial="slideReveal-init"
         whileInView="slideReveal-final"
-        viewport={{ once: true, amount: 1 }}
+        viewport={{ once: true, amount:0.4 }}
       >
         <Text
           as="h3"
