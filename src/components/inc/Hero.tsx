@@ -55,10 +55,10 @@ const Hero = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        "@md": {
-          pt: 300,
-          pb: 200,
-        },
+        // "@md": {
+        //   pt: 300,
+        //   pb: 200,
+        // },
       }}
     >
       <Container>
@@ -136,9 +136,14 @@ const Hero = () => {
             css={{
               as: "center",
               justifySelf: "center",
+              size: 270,
               order: 1,
-              "@md": { gcs: "span 2" },
+              "@sm": { size: 300 },
+              "@md": { gcs: "span 2", size: "auto" },
               "@lg": { grs: "span 2" },
+              "& > *::first-child": {
+                size: "$2",
+              },
             }}
           >
             <Image
@@ -200,14 +205,17 @@ const Hero = () => {
             opacity: 0.8,
           },
           position: "absolute",
-          right: "23%",
-          bottom: "22%",
-          display: "grid",
+          display: "none",
           placeItems: "center",
+          "@md": {
+            display: "grid",
+            right: "23%",
+            bottom: "22%",
+          },
         }}
         aria-label={"go to main sections"}
       >
-        <Arrow style={{}} />
+        <Arrow />
       </Box>
     </Box>
   );
