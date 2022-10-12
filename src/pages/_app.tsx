@@ -1,9 +1,8 @@
 import React, { useRef, Suspense } from "react";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
-import figlet from "figlet";
-//@ts-ignore
-import poison from "../../node_modules/figlet/importable-fonts/poison.js";
+import * as figlet from "figlet";
+import poison from "@components/base/Poison"
 import type { AppProps } from "next/app";
 import { darkTheme } from "@stitchesConfig";
 import { Navbar, FloatingBurger } from "@components/inc";
@@ -11,6 +10,7 @@ import { LoaderProvider } from "@context";
 import useToggle from "@hooks/useToogle";
 import dynamic from "next/dynamic";
 import "../styles/highlight.css";
+
 
 const MobileNav = dynamic(() => import("@components/inc/MobileNav"));
 const Footer = dynamic(() => import("@components/inc/Footer"));
