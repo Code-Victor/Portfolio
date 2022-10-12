@@ -112,7 +112,6 @@ const TechStack = ({ stack }: { stack: stackName }) => {
     return () => {
       if (stackNode) {
         stackNode.removeEventListener("mousemove", mouseMoveEvent);
-        console.log("removed");
       }
     };
   }, [stackRef]);

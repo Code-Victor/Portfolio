@@ -70,7 +70,6 @@ const Tabs = () => {
 
   const tabInfo = experience.filter((exp) => exp.company === activeTab)[0];
   const isMd = useMd();
-  console.log(isMd);
   return (
     <Grid
       columns={{ "@initial": "1", "@md": "none" }}

@@ -17,7 +17,6 @@ export const getSCSlug = (): string[] => {
 
 export const getAllSC = () => {
   const showcases = getSCSlug().map((slug) => getSC(slug));
-  console.log(getSCSlug());
 };
 
 interface Post {

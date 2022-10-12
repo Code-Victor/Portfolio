@@ -129,7 +129,6 @@ export default Showcase;
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as { slug: string };
   const { content, meta } = getSC(slug);
-  console.log({ meta });
   const mdxSource = await serialize(content, {
     mdxOptions: {
       rehypePlugins: [
