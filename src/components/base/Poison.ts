@@ -1,3 +1,4 @@
+// gotten from node_modules/figlet/importable-fonts/poison.js and modified to typescript
 const font= `flf2a$ 12 10 20 -1 14
 poison.flf composed into figlet by Vinney Thai <ssfiit@eris.cc.umb.edu>
 poison font (numbers & puntuation marks) composed by Vinney Thai
