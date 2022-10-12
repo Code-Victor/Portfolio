@@ -1,9 +1,13 @@
 import { Box, Container } from "@components/base";
 import { ImageSlider, Multitab, TechStacks } from "@components/inc";
-import {theme} from '@stitchesConfig'
+import { theme } from "@stitchesConfig";
 import React, { useEffect, useCallback } from "react";
-import Slider from "react-slick";
-import { motion } from "framer-motion";
+import figlet from "figlet";
+//@ts-ignore
+import poison from "../../node_modules/figlet/importable-fonts/poison.js";
+
+
+type h=keyof  figlet.Options
 
 const Images = [
   {
@@ -24,8 +28,7 @@ const Images = [
   },
 ];
 const Test = () => {
-  console.log({theme})
-  console.log({colors:theme.colors})
+
   const settings = {
     dots: true,
     infinite: true,
@@ -61,7 +64,7 @@ const Test = () => {
           )}
         </Box> */}
         <TechStacks stackNames={["TypeScript", "React", "Redux", "Vite"]} />
-            <ImageSlider images={Images}  />
+        <ImageSlider images={Images} />
       </Container>
     </Box>
   );
