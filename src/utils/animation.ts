@@ -20,8 +20,8 @@ const variants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.025 + 1.2,
-      duration: 0.05,
+      delay: i * 0.08 + 1.2,
+      duration: 0.2,
       ease: "easeInOut",
       type: "tween",
     },
