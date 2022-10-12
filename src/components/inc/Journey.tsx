@@ -33,14 +33,19 @@ const Journey = () => {
         {[
           ...journey.map((item, i) => (
             <MobileJourneyGrid
-              key={i}
+              key={`mobile-${i}`}
               i={i}
               length={journey.length}
               {...item}
             />
           )),
           ...journey.map((item, i) => (
-            <JourneyGrid key={i} i={i} {...item} length={journey.length} />
+            <JourneyGrid
+              key={`desktop-${i}`}
+              i={i}
+              {...item}
+              length={journey.length}
+            />
           )), //FIXME: WHAT THE HECK IS LAST-OF-TYPE DO?
         ]}
       </Box>
@@ -77,7 +82,7 @@ const JourneyGrid = ({
           variants={variants}
           initial="-slideReveal-init"
           whileInView="-slideReveal-final"
-          viewport={{ once: true, amount:0.4 }}
+          viewport={{ once: true, amount: 0.4 }}
         >
           <Text
             as="h3"
@@ -142,7 +147,7 @@ const JourneyGrid = ({
         variants={variants}
         initial="slideReveal-init"
         whileInView="slideReveal-final"
-        viewport={{ once: true, amount:0.4 }}
+        viewport={{ once: true, amount: 0.4 }}
       >
         <Text
           as="h3"
