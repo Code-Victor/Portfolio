@@ -11,7 +11,6 @@ import { Box, Flex, GradientBtn, Text } from "../base";
 
 const Blog = () => {
   const { data, error } = useSWR(url, fetcher<returns>);
-  console.table({ data });
   const loading = !data && !error;
   const items = data?.items;
 
