@@ -1,12 +1,15 @@
+import React, { useRef, Suspense } from "react";
+import { ThemeProvider } from "next-themes";
+import Head from "next/head";
+import figlet from "figlet";
+//@ts-ignore
+import poison from "../../node_modules/figlet/importable-fonts/poison.js";
 import type { AppProps } from "next/app";
 import { darkTheme } from "@stitchesConfig";
-import { ThemeProvider } from "next-themes";
 import { Navbar, FloatingBurger } from "@components/inc";
 import { LoaderProvider } from "@context";
-import React, { useRef, Suspense } from "react";
 import useToggle from "@hooks/useToogle";
 import dynamic from "next/dynamic";
-import Head from "next/head";
 import "../styles/highlight.css";
 
 const MobileNav = dynamic(() => import("@components/inc/MobileNav"));
@@ -18,6 +21,27 @@ function MyApp({ Component, pageProps }: AppProps) {
   const render = useRef(true);
   const [loading, setLoading] = React.useState(true);
   const [navOpened, setNavOpened] = useToggle(false);
+
+  figlet.parseFont("Poison", poison);
+  figlet.text(
+    "hello Dear,",
+    {
+      font: "Poison",
+      width: 60,
+    },
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        return false;
+      }
+
+      console.log(
+        data,
+        `\n seeing that you curious about how this project what built, \n you can check the source code on github \n https://github.com/Code-Victor/Portfolio \n and read about how I built it on medium  \n https://medium.com/@oluwaborihamzat`
+      );
+    }
+  );
+
   React.useEffect(() => {
     if (render.current) {
       const timer = setTimeout(() => {
