@@ -9,6 +9,7 @@ const { navLinks, socialMedia } = config;
 const NavContainer = styled("div", {
   height: "100vh",
   width: "60%",
+  maxWidth:300,
   position: "fixed",
   display: "flex",
   fd: "column",
@@ -19,8 +20,11 @@ const NavContainer = styled("div", {
   bg: "$textPrimary",
   pt: "$8",
   px: "$4",
-  pb: "$4",
+  pb: "$8",
   color: "$backgroundPrimary",
+  '@sm':{
+    pb:'$4'
+  }
 });
 interface Nav {
   navOpened: boolean;
