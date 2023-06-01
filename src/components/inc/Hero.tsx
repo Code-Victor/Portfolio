@@ -18,13 +18,13 @@ const Links = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/oluwaborihamzat/",
+    href: "https://www.linkedin.com/in/codevictor",
     icon: <LinkedIn />,
     variant: 2,
   },
   {
     label: "Twitter",
-    href: "https://twitter.com/victorfiery",
+    href: "https://twitter.com/TheFireAndCode",
     icon: <Twitter />,
     variant: 3,
   },

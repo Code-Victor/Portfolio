@@ -43,7 +43,7 @@ const config = {
     },
     {
       name: "Twitter",
-      url: "https://twitter.com/VictorFiery",
+      url: "https://twitter.com/TheFireAndCode",
       icon: SiTwitter,
     },
     {
